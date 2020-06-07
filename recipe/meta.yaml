@@ -1,6 +1,6 @@
 {% set name = "perspective" %}
 {% set pypi_name = "perspective-python" %}
-{% set version = "0.4.8" %}
+{% set version = "0.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,13 +8,13 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ pypi_name[0] }}/{{ pypi_name }}/{{ pypi_name }}-{{ version }}.tar.gz
-  sha256: 08e6f8f6baba3c8867dacf0b1116e1ca1024fbef0c1377bd1d1123428248a767
+  sha256: e9cba73340b17e05a51a80731be55303540baf854b31997cd5b466eb31a0acdd
 
 build:
   number: 0
-  skip: True  # [py<37 or win or osx]
+  skip: true  # [py<37 or win or osx]
   # skip: True  # [py<37 or (win and vc<14)]  # keep this for future reference
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
@@ -46,7 +46,7 @@ about:
   license: Apache-2.0
   license_family: Apache
   license_file: dist/LICENSE
-  summary: 'Streaming pivot visualization via WebAssembly'
+  summary: Streaming pivot visualization via WebAssembly
 
   description: |
     Streaming pivot visualization via WebAssembly
