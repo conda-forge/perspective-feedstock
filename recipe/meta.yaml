@@ -26,8 +26,8 @@ requirements:
     - pybind11
     - boost
     - numpy >=1.13.1
-    - pyarrow ==0.16.0
-    - arrow-cpp ==0.16.0
+    - pyarrow ==0.15.1
+    - arrow-cpp ==0.15.1
   run:
     - python
     - ipywidgets >=7.5.1
