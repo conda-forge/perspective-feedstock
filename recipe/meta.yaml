@@ -22,11 +22,11 @@ requirements:
     - cmake
   host:
     - python
-    - arrow-cpp >=1.0
+    - arrow-cpp <2
     - boost
     - numpy >=1.13.1
     - pip
-    - pyarrow >=1.0
+    - pyarrow <2
     - pybind11
   run:
     - python
