@@ -12,7 +12,7 @@ source:
 
 build:
   number: 0
-  skip: True  # [py<37 or (win and vc<14)]
+  skip: True  # [py<37 or win]
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
@@ -41,7 +41,7 @@ requirements:
 test:
   imports:
     - perspective
-    - perspective.table  # [!win]
+    - perspective.table
 
 about:
   home: http://github.com/finos/perspective
