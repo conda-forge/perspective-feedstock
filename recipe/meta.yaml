@@ -41,7 +41,7 @@ requirements:
 test:
   imports:
     - perspective
-    - perspective.table  # [win]
+    - perspective.table  # [!win]
 
 about:
   home: http://github.com/finos/perspective
