@@ -20,14 +20,15 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake
   host:
+    - boost
+    - flatbuffers
+    - nodejs
+    - numpy >=1.13.1
     - python
     - pip
-    - nodejs
-    - yarn
     - pybind11
-    - boost
-    - numpy >=1.13.1
     - rapidjson
+    - yarn
   run:
     - python
     - ipywidgets >=7.5.1
