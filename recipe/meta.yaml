@@ -1,6 +1,6 @@
 {% set name = "perspective" %}
 {% set pypi_name = "perspective-python" %}
-{% set version = "0.5.2" %}
+{% set version = "0.6.2" %}
 
 package:
   name: {{ name|lower }}
@@ -8,12 +8,11 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ pypi_name[0] }}/{{ pypi_name }}/{{ pypi_name }}-{{ version }}.tar.gz
-  sha256: 57ba278f585fac4342ae5b8858c06f6dbc7b015f4dcd78a898b2bd2226d1174a
+  sha256: 84ea8fa427dbcc1b2acf4be029d3983632d3639ae2ad8cae05dd4ca061f83afc
 
 build:
   number: 0
-  skip: true  # [py<37 or win or osx]
-  # skip: True  # [py<37 or (win and vc<14)]  # keep this for future reference
+  skip: True  # [py<37 or win]
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
@@ -21,21 +20,24 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake
   host:
+    - boost
+    - flatbuffers
+    - nodejs
+    - numpy >=1.13.1
     - python
     - pip
     - pybind11
-    - boost
-    - numpy >=1.13.1
-    - pyarrow ==0.15.1
-    - arrow-cpp ==0.15.1
+    - rapidjson
+    - yarn
   run:
     - python
     - ipywidgets >=7.5.1
     - {{ pin_compatible('numpy') }}
+    - pandas >=0.22.0
     - python-dateutil >=2.8.0
     - six >=1.11.0
+    - tornado >=4.5.3
     - traitlets >=4.3.2
-    - pandas >=0.22.0
 test:
   imports:
     - perspective
