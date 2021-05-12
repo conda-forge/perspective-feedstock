@@ -11,7 +11,7 @@ source:
   sha256: 38f26e42a2eafa41d435ea0c1a3563a831d586cd0308086fbf4f930ae7b16d2d
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<37 or win]
   script: {{ PYTHON }} -m pip install . -vv
 
@@ -19,6 +19,7 @@ requirements:
   build:
     - {{ compiler('cxx') }}
     - cmake
+    - sysroot_linux-64 2.17  # [linux64]
   host:
     - boost
     - flatbuffers
