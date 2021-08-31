@@ -1,6 +1,6 @@
 {% set name = "perspective" %}
 {% set pypi_name = "perspective-python" %}
-{% set version = "0.10.0" %}
+{% set version = "0.10.2" %}
 
 package:
   name: {{ name|lower }}
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ pypi_name[0] }}/{{ pypi_name }}/{{ pypi_name }}-{{ version }}.tar.gz
-  sha256: 1f7b345dccbcc1276810735e5ce1c3f983f022d82cbce8d740bcaaf63960fe08
+  sha256: c5937acaa019f264077a7aeb964da5cfa180f4bc4d9203ee40d1b226294af723
 
 build:
-  number: 1
+  number: 0
   skip: true  # [py<37 or win]
   script: {{ PYTHON }} -m pip install . -vv
 
