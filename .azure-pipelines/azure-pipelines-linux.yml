@@ -56,6 +56,103 @@ jobs:
         CONFIG: linux_64_nodejs16python3.9.____cpython
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-cuda:10.2
+      linux_aarch64_nodejs12python3.10.____cpython:
+        CONFIG: linux_aarch64_nodejs12python3.10.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_aarch64_nodejs12python3.7.____cpython:
+        CONFIG: linux_aarch64_nodejs12python3.7.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_aarch64_nodejs12python3.8.____cpython:
+        CONFIG: linux_aarch64_nodejs12python3.8.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_aarch64_nodejs12python3.9.____cpython:
+        CONFIG: linux_aarch64_nodejs12python3.9.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_aarch64_nodejs14python3.10.____cpython:
+        CONFIG: linux_aarch64_nodejs14python3.10.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_aarch64_nodejs14python3.7.____cpython:
+        CONFIG: linux_aarch64_nodejs14python3.7.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_aarch64_nodejs14python3.8.____cpython:
+        CONFIG: linux_aarch64_nodejs14python3.8.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_aarch64_nodejs14python3.9.____cpython:
+        CONFIG: linux_aarch64_nodejs14python3.9.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_aarch64_nodejs16python3.10.____cpython:
+        CONFIG: linux_aarch64_nodejs16python3.10.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_aarch64_nodejs16python3.7.____cpython:
+        CONFIG: linux_aarch64_nodejs16python3.7.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_aarch64_nodejs16python3.8.____cpython:
+        CONFIG: linux_aarch64_nodejs16python3.8.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_aarch64_nodejs16python3.9.____cpython:
+        CONFIG: linux_aarch64_nodejs16python3.9.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_ppc64le_nodejs12python3.10.____cpython:
+        CONFIG: linux_ppc64le_nodejs12python3.10.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_ppc64le_nodejs12python3.7.____cpython:
+        CONFIG: linux_ppc64le_nodejs12python3.7.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_ppc64le_nodejs12python3.8.____cpython:
+        CONFIG: linux_ppc64le_nodejs12python3.8.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_ppc64le_nodejs12python3.9.____cpython:
+        CONFIG: linux_ppc64le_nodejs12python3.9.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_ppc64le_nodejs14python3.10.____cpython:
+        CONFIG: linux_ppc64le_nodejs14python3.10.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_ppc64le_nodejs14python3.7.____cpython:
+        CONFIG: linux_ppc64le_nodejs14python3.7.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_ppc64le_nodejs14python3.8.____cpython:
+        CONFIG: linux_ppc64le_nodejs14python3.8.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_ppc64le_nodejs14python3.9.____cpython:
+        CONFIG: linux_ppc64le_nodejs14python3.9.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_ppc64le_nodejs16python3.10.____cpython:
+        CONFIG: linux_ppc64le_nodejs16python3.10.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_ppc64le_nodejs16python3.7.____cpython:
+        CONFIG: linux_ppc64le_nodejs16python3.7.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_ppc64le_nodejs16python3.8.____cpython:
+        CONFIG: linux_ppc64le_nodejs16python3.8.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_ppc64le_nodejs16python3.9.____cpython:
+        CONFIG: linux_ppc64le_nodejs16python3.9.____cpython
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+    maxParallel: 29
   timeoutInMinutes: 360
 
   steps:
