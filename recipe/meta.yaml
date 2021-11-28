@@ -14,7 +14,11 @@ build:
   number: 3
   skip: true  # [win and vc<12]
 
-  script: {{ PYTHON }} -m pip install . -vv
+  script:
+    - {{ PYTHON }} -m pip install . -vv
+    - dir perspective/table/  # [win]
+    - dumpbin /dependents perspective/table/libbinding.pyd  # [win]
+    - dumpbin /dependents perspective/table/libpsp.dll  # [win]
 
 requirements:
   build:
@@ -29,7 +33,6 @@ requirements:
     - python
     - pip
     - pybind11
-    - tbb  # [win]
     - yarn
   run:
     - python
