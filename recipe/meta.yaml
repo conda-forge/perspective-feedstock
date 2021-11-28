@@ -14,6 +14,11 @@ build:
   number: 0
   skip: true  # [py<37 or win]
   script:
+    - export CMAKE_THREAD_LIBS_INIT="-lpthread"  # [osx]
+    - export CMAKE_HAVE_THREADS_LIBRARY=1  # [osx]
+    - export CMAKE_USE_WIN32_THREADS_INIT=0  # [osx]
+    - export CMAKE_USE_PTHREADS_INIT=1  # [osx]
+    - export THREADS_PREFER_PTHREAD_FLAG=ON  # [osx]
     - {{ PYTHON }} -m pip install . -vv
 
 requirements:
@@ -21,7 +26,6 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake 3.16.*
     - sysroot_linux-64 2.17  # [linux64]
-    - pthread-stubs  # [osx]
   host:
     - boost
     - flatbuffers
@@ -30,7 +34,6 @@ requirements:
     - pip
     - pybind11
     - python
-    - pthread-stubs  # [osx]
     - yarn
   run:
     - python
