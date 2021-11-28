@@ -1,6 +1,6 @@
 {% set name = "perspective" %}
 {% set pypi_name = "perspective-python" %}
-{% set version = "1.0.0" %}
+{% set version = "1.0.3" %}
 
 package:
   name: {{ name|lower }}
@@ -8,15 +8,19 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ pypi_name[0] }}/{{ pypi_name }}/{{ pypi_name }}-{{ version }}.tar.gz
-  sha256: a04c3c1c24ad2c9b045af9a8c11d194a5ccd7dba356aa3a25607d025684c0148
+  sha256: d9075d0cea2b1d22104a8c162ec98e3c58175527e4e3d0d50a1c96217df5366b
 
 build:
-  number: 2
+  number: 0
   skip: true  # [py<37 or win]
-  script: {{ PYTHON }} -m pip install . -vv
+  script:
+    - export CMAKE_OSX_SYSROOT=$(xcode-select --print-path)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
+    - export CMAKE_OSX_DEPLOYMENT_TARGET=10.9
+    - {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
+    - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - cmake
     - sysroot_linux-64 2.17  # [linux64]
@@ -28,7 +32,6 @@ requirements:
     - python
     - pip
     - pybind11
-    - rapidjson
     - yarn
   run:
     - python
