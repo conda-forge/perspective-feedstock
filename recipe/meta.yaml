@@ -15,10 +15,8 @@ build:
   skip: true  # [win and vc<12]
 
   script:
-    - {{ PYTHON }} -m pip install . -vv
-    - dir perspective/table/  # [win]
-    - dumpbin /dependents perspective/table/libbinding.pyd  # [win]
-    - dumpbin /dependents perspective/table/libpsp.dll  # [win]
+    - {{ PYTHON }} -m pip install . -vv  # [not win]
+    - bld.bat  # [win]
 
 requirements:
   build:
