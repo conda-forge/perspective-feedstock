@@ -14,13 +14,12 @@ build:
   number: 0
   skip: true  # [py<37 or win]
   script:
-    - locate pthread.h
     - {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
     - {{ compiler('cxx') }}
-    - cmake
+    - cmake 3.16.*
     - sysroot_linux-64 2.17  # [linux64]
     - pthread-stubs  # [osx]
   host:
