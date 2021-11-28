@@ -16,7 +16,16 @@ build:
 
   script:
     - {{ PYTHON }} -m pip install . -vv  # [not win]
-    - bld.bat  # [win]
+    - echo here  # [win]
+    - echo here  # [win]
+    - echo here  # [win]
+    - echo here  # [win]
+    - echo here  # [win]
+    - echo here  # [win]
+    - echo here  # [win]
+    - echo here  # [win]
+    - echo here  # [win]
+    - bld-psp.bat  # [win]
 
 requirements:
   build:
