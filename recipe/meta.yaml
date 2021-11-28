@@ -14,24 +14,24 @@ build:
   number: 0
   skip: true  # [py<37 or win]
   script:
-    - export CMAKE_OSX_SYSROOT=$(xcode-select --print-path)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk  # [osx]
-    - export CMAKE_OSX_DEPLOYMENT_TARGET=10.9  # [osx]
+    - locate pthread.h
     - {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
-    - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - cmake
     - sysroot_linux-64 2.17  # [linux64]
+    - pthread-stubs  # [osx]
   host:
     - boost
     - flatbuffers
     - nodejs
     - numpy >=1.13.1
-    - python
     - pip
     - pybind11
+    - python
+    - pthread-stubs  # [osx]
     - yarn
   run:
     - python
