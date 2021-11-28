@@ -1,5 +1,4 @@
 
-set 
 %PYTHON%   setup.py ^
            build_ext ^
            install --single-version-externally-managed ^
