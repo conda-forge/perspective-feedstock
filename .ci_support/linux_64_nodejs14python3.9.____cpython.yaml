@@ -1,5 +1,9 @@
 boost:
 - 1.74.0
+c_compiler:
+- gcc
+c_compiler_version:
+- '9'
 cdt_name:
 - cos7
 channel_sources:
@@ -25,5 +29,7 @@ python:
 target_platform:
 - linux-64
 zip_keys:
+- - c_compiler_version
+  - cxx_compiler_version
 - - cdt_name
   - docker_image
