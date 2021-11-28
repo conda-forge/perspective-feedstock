@@ -14,8 +14,8 @@ build:
   number: 0
   skip: true  # [py<37 or win]
   script:
-    - export CMAKE_OSX_SYSROOT=$(xcode-select --print-path)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk
-    - export CMAKE_OSX_DEPLOYMENT_TARGET=10.9
+    - export CMAKE_OSX_SYSROOT=$(xcode-select --print-path)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk  # [osx]
+    - export CMAKE_OSX_DEPLOYMENT_TARGET=10.9  # [osx]
     - {{ PYTHON }} -m pip install . -vv
 
 requirements:
