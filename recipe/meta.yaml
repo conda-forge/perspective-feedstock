@@ -14,13 +14,13 @@ build:
   number: 3
   skip: true  # [win and vc<12]
 
-  script: {{ PYTHON }} -m pip install . -vv  # [not win]
   script:
+    - {{ PYTHON }} -m pip install . -vv  # [not win]
     - {{ PYTHON }} setup.py build_ext install --single-version-externally-managed  --record=record.txt  # [win]
-    - dir perspective/
-    - dir perspective/table/
-    - dumpbin /dependents perspective/table/libbinding.pyd
-    - dumpbin /dependents perspective/table/libpsp.dll
+    - dir perspective/  # [win]
+    - dir perspective/table/  # [win]
+    - dumpbin /dependents perspective/table/libbinding.pyd  # [win]
+    - dumpbin /dependents perspective/table/libpsp.dll  # [win]
 
 
 requirements:
