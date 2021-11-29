@@ -7,7 +7,7 @@ channel_targets:
 cxx_compiler:
 - vs2017
 nodejs:
-- '12'
+- '17'
 pin_run_as_build:
   boost:
     max_pin: x.x.x
@@ -15,8 +15,8 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.7.* *_cpython
+- 3.9.* *_cpython
 target_platform:
 - win-64
-tbb:
-- '2020'
+vc:
+- '14'
