@@ -24,11 +24,10 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake
     - sysroot_linux-64 2.17  # [linux64]
-    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx]
   host:
     - boost
     - flatbuffers
-    - nodejs >=16  # [osx and arm64]
+    - nodejs 14.*  # [osx and arm64]
     - nodejs  # [not (osx and arm64)]
     - numpy >=1.13.1
     - python
@@ -36,7 +35,6 @@ requirements:
     - pybind11
     - rapidjson
     - yarn
-    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx]
   run:
     - python
     - ipywidgets >=7.5.1
@@ -46,7 +44,6 @@ requirements:
     - six >=1.11.0
     - tornado >=4.5.3
     - traitlets >=4.3.2
-    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx]
 test:
   imports:
     - perspective
