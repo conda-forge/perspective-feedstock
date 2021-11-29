@@ -27,7 +27,7 @@ requirements:
   host:
     - boost
     - flatbuffers
-    - nodejs
+    - {{ pin_compatible('nodejs') }}
     - numpy >=1.13.1
     - python
     - pip
