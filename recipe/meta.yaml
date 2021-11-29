@@ -15,7 +15,7 @@ build:
   skip: true  # [win and vc<12]
 
   script: {{ PYTHON }} -m pip install . -vv  # [not win]
-  script: bld-psp.bat  # [win]
+  script: cmd /d /c bld-psp.bat  # [win]
 
 requirements:
   build:
