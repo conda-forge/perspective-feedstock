@@ -27,7 +27,8 @@ requirements:
   host:
     - boost
     - flatbuffers
-    - nodejs
+    - nodejs >=16  # [osx and arm64]
+    - nodejs  # [not (osx and arm64)]
     - numpy >=1.13.1
     - python
     - pip
