@@ -13,7 +13,7 @@ source:
 build:
   number: 3
   skip: true  # [win and vc<12]
-  skip: true  # [osx and arm64 and vscode<16]
+  skip: true  # [osx and arm64 and nodejs<16]
 
   script:
     - {{ PYTHON }} -m pip install . -vv  # [not win]
