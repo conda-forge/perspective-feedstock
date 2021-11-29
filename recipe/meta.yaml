@@ -11,9 +11,18 @@ source:
   sha256: a04c3c1c24ad2c9b045af9a8c11d194a5ccd7dba356aa3a25607d025684c0148
 
 build:
-  number: 2
-  skip: true  # [py<37 or win]
-  script: {{ PYTHON }} -m pip install . -vv
+  number: 3
+  skip: true  # [win and vc<12]
+
+  script:
+    - {{ PYTHON }} -m pip install . -vv  # [not win]
+    - set PSP_GENERATOR=Visual Studio 14 2015  # [win]
+    - {{ PYTHON }} setup.py build_ext install --single-version-externally-managed  --record=record.txt  # [win]
+    - dir perspective/  # [win]
+    - dir perspective/table/  # [win]
+    - dumpbin /dependents perspective/table/libbinding.pyd  # [win]
+    - dumpbin /dependents perspective/table/libpsp.dll  # [win]
+
 
 requirements:
   build:
@@ -28,7 +37,6 @@ requirements:
     - python
     - pip
     - pybind11
-    - rapidjson
     - yarn
   run:
     - python
@@ -59,5 +67,4 @@ extra:
   recipe-maintainers:
     - timkpaine
     - texodus
-    - neilslinger
     - sc1f
