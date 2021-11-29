@@ -15,7 +15,13 @@ build:
   skip: true  # [win and vc<12]
 
   script: {{ PYTHON }} -m pip install . -vv  # [not win]
-  script: bld.bat  # [win]
+  script:
+    - {{ PYTHON }} setup.py build_ext install --single-version-externally-managed  --record=record.txt  # [win]
+    - dir perspective/
+    - dir perspective/table/
+    - dumpbin /dependents perspective/table/libbinding.pyd
+    - dumpbin /dependents perspective/table/libpsp.dll
+
 
 requirements:
   build:
