@@ -12,7 +12,7 @@ source:
 
 build:
   number: 0
-  skip: true  # [win and vc<12]
+  skip: true  # [(win and vc<12) or nodejs<17 or py>37]
 
   script:
     - pwd  # [not win]
