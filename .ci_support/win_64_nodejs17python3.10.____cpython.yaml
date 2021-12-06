@@ -1,19 +1,13 @@
 boost:
 - 1.74.0
-cdt_name:
-- cos7
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
 cxx_compiler:
-- gxx
-cxx_compiler_version:
-- '9'
-docker_image:
-- quay.io/condaforge/linux-anvil-cos7-x86_64
+- vs2017
 nodejs:
-- '16'
+- '17'
 pin_run_as_build:
   boost:
     max_pin: x.x.x
@@ -21,6 +15,8 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.7.* *_cpython
+- 3.10.* *_cpython
 target_platform:
-- linux-64
+- win-64
+vc:
+- '14'
