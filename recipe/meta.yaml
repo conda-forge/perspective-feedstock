@@ -15,7 +15,7 @@ build:
   skip: true  # [(win and vc<12) or nodejs<17 or py>37]
 
   script:
-    - pwd  # [not win]
+    - echo `pwd`  # [not win]
     - blerg
     - {{ PYTHON }} -m pip install . -vv  # [not win]
     - set PSP_GENERATOR=Visual Studio 14 2015  # [win]
