@@ -6,8 +6,6 @@
 cmake_minimum_required(VERSION 3.5.1)
 
 project(RE2 CXX)
-include(CTest)
-include(GNUInstallDirs)
 
 if(NOT CMAKE_CXX_STANDARD)
   set(CMAKE_CXX_STANDARD 11)
@@ -50,7 +48,7 @@ if(WIN32)
 # TKP NOTE: THIS SECTION IS CUSTOM
 # ************************************
 elseif(APPLE)
-  add_definitions(-DTARGET_OS_OSX=1)
+  add_definitions(-DTARGET_OS_OSX)
   # assume built-in pthreads on MacOS
   set(CMAKE_THREAD_LIBS_INIT "-lpthread")
   set(CMAKE_HAVE_THREADS_LIBRARY 1)
@@ -62,11 +60,6 @@ elseif(APPLE)
 elseif(UNIX)
   set(THREADS_PREFER_PTHREAD_FLAG ON)
   find_package(Threads REQUIRED)
-endif()
-
-if(USEPCRE)
-  add_definitions(-DUSEPCRE)
-  list(APPEND EXTRA_TARGET_LINK_LIBRARIES pcre)
 endif()
 
 set(RE2_SOURCES
@@ -102,75 +95,3 @@ add_library(re2::re2 ALIAS re2)
 if(UNIX)
   target_link_libraries(re2 PUBLIC Threads::Threads)
 endif()
-
-if(RE2_BUILD_TESTING)
-  set(TESTING_SOURCES
-      re2/testing/backtrack.cc
-      re2/testing/dump.cc
-      re2/testing/exhaustive_tester.cc
-      re2/testing/null_walker.cc
-      re2/testing/regexp_generator.cc
-      re2/testing/string_generator.cc
-      re2/testing/tester.cc
-      util/pcre.cc
-      )
-
-  add_library(testing STATIC ${TESTING_SOURCES})
-  target_link_libraries(testing PUBLIC re2)
-
-  set(TEST_TARGETS
-      charclass_test
-      compile_test
-      filtered_re2_test
-      mimics_pcre_test
-      parse_test
-      possible_match_test
-      re2_test
-      re2_arg_test
-      regexp_test
-      required_prefix_test
-      search_test
-      set_test
-      simplify_test
-      string_generator_test
-
-      dfa_test
-      exhaustive1_test
-      exhaustive2_test
-      exhaustive3_test
-      exhaustive_test
-      random_test
-      )
-
-  set(BENCHMARK_TARGETS
-      regexp_benchmark
-      )
-
-  foreach(target ${TEST_TARGETS})
-    add_executable(${target} re2/testing/${target}.cc util/test.cc)
-    target_link_libraries(${target} testing ${EXTRA_TARGET_LINK_LIBRARIES})
-    add_test(NAME ${target} COMMAND ${target})
-  endforeach()
-
-  foreach(target ${BENCHMARK_TARGETS})
-    add_executable(${target} re2/testing/${target}.cc util/benchmark.cc)
-    target_link_libraries(${target} testing ${EXTRA_TARGET_LINK_LIBRARIES})
-  endforeach()
-endif()
-
-set(RE2_HEADERS
-    re2/filtered_re2.h
-    re2/re2.h
-    re2/set.h
-    re2/stringpiece.h
-    )
-
-install(FILES ${RE2_HEADERS}
-        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/re2)
-install(TARGETS re2 EXPORT re2Config
-        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-        RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-        INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
-install(EXPORT re2Config
-        DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/re2 NAMESPACE re2::)
