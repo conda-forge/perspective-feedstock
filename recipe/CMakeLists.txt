@@ -431,10 +431,11 @@ psp_build_dep("arrow" "${PSP_CMAKE_MODULE_PATH}/arrow.txt.in")
 # Build re2 as our regex library
 find_package(re2)
 if(NOT RE2_FOUND)
-    psp_build_dep("re2" "${PSP_CMAKE_MODULE_PATH}/re2.txt.in")
+  add_definitions(-DTARGET_OS_OSX=1)
+  psp_build_dep("re2" "${PSP_CMAKE_MODULE_PATH}/re2.txt.in")
 else()
-    psp_build_message("${Cyan}Found re2 in ${RE2_INCLUDE_DIR}${ColorReset}")
-    include_directories( ${RE2_INCLUDE_DIR} )
+  psp_build_message("${Cyan}Found re2 in ${RE2_INCLUDE_DIR}${ColorReset}")
+  include_directories( ${RE2_INCLUDE_DIR} )
 endif()
 
 # Build exprtk for expression parsing
