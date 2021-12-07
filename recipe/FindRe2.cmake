@@ -32,7 +32,7 @@ find_package(PkgConfig REQUIRED)
 # For now, we can only set INTERFACE_* properties that existed in CMake 3.5.
 pkg_check_modules(RE2 QUIET re2)
 if(RE2_FOUND)
-  set(re2_FOUND "${RE2_FOUND}")
+  set(re2_FOUND true)
   add_library(re2::re2 INTERFACE IMPORTED)
   if(RE2_INCLUDE_DIRS)
     set_property(TARGET re2::re2 PROPERTY
@@ -50,10 +50,12 @@ if(RE2_FOUND)
     set_property(TARGET re2::re2 PROPERTY
                  INTERFACE_COMPILE_OPTIONS "${RE2_CFLAGS_OTHER}")
   endif()
+
   if(RE2_LDFLAGS)
     set_property(TARGET re2::re2 PROPERTY
                  INTERFACE_LINK_LIBRARIES "${RE2_LDFLAGS}")
   endif()
+
   message(STATUS "Found RE2 via pkg-config.")
   return()
 endif()

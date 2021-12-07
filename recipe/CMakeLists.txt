@@ -430,7 +430,7 @@ psp_build_dep("arrow" "${PSP_CMAKE_MODULE_PATH}/arrow.txt.in")
 
 # Build re2 as our regex library
 find_package(re2)
-if(NOT RE2_FOUND)
+if(NOT re2_FOUND)
   add_definitions(-DTARGET_OS_OSX=1)
   psp_build_dep("re2" "${PSP_CMAKE_MODULE_PATH}/re2.txt.in")
 else()
@@ -453,6 +453,7 @@ endif()
 if (WIN32)
     psp_build_dep("flatbuffers" "${PSP_CMAKE_MODULE_PATH}/flatbuffers.txt.in")
 endif()
+
 find_package(Flatbuffers)
 if(NOT FLATBUFFERS_FOUND)
     message(FATAL_ERROR"${Red}Flatbuffers could not be located${ColorReset}")
