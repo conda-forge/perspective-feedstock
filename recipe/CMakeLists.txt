@@ -194,20 +194,26 @@ endif()
 # fix for threads on osx 
 
 if (PSP_PYTHON_BUILD AND MACOS)
-  # assume built-in pthreads on MacOS
-  set(CMAKE_THREAD_LIBS_INIT "-lpthread")
-  set(CMAKE_HAVE_THREADS_LIBRARY 1)
-  set(CMAKE_USE_WIN32_THREADS_INIT 0)
-  set(CMAKE_USE_PTHREADS_INIT 1)
-  set(THREADS_PREFER_PTHREAD_FLAG ON)
+    # assume built-in pthreads on MacOS
+    set(CMAKE_THREAD_LIBS_INIT "-lpthread")
+    set(CMAKE_HAVE_THREADS_LIBRARY 1)
+    set(CMAKE_USE_WIN32_THREADS_INIT 0)
+    set(CMAKE_USE_PTHREADS_INIT 1)
+    set(THREADS_PREFER_PTHREAD_FLAG ON)
 
-  set(CMAKE_REQUIRED_LINK_OPTIONS "-arch;x86_64")
-  check_c_compiler_flag("-arch x86_64" x86_64Supported)
-  set(CMAKE_REQUIRED_LINK_OPTIONS "-arch;arm64")
-  check_c_compiler_flag("-arch arm64" arm64Supported)
-  if(x86_64Supported AND arm64Supported)
-      set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE STRING "Build universal architecture for OSX" FORCE)
-  endif()
+    # don't link against build python
+    # https://blog.tim-smith.us/2015/09/python-extension-modules-os-x/
+    set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -undefined dynamic_lookup")
+
+    set(CMAKE_REQUIRED_LINK_OPTIONS "-arch;x86_64")
+    check_c_compiler_flag("-arch x86_64" x86_64Supported)
+
+    set(CMAKE_REQUIRED_LINK_OPTIONS "-arch;arm64")
+    check_c_compiler_flag("-arch arm64" arm64Supported)
+
+    if(x86_64Supported AND arm64Supported)
+        set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE STRING "Build universal architecture for OSX" FORCE)
+    endif()
 endif()
 
 
@@ -372,32 +378,7 @@ elseif(PSP_CPP_BUILD OR PSP_PYTHON_BUILD)
         psp_build_message("${Cyan}Using Python ${Python_VERSION}, \nPython_INCLUDE_DIRS: ${Python_INCLUDE_DIRS}, \nPython_LIBRARIES: ${Python_LIBRARIES}, \nPython_EXECUTABLE: ${Python_EXECUTABLE} ${ColorReset}")
         include_directories( ${Python_INCLUDE_DIRS} )
 
-        if(MACOS)
-            # don't link against build python
-            # https://blog.tim-smith.us/2015/09/python-extension-modules-os-x/
-            set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -undefined dynamic_lookup")
-
-            set(CMAKE_REQUIRED_LINK_OPTIONS "-arch;x86_64")
-            check_c_compiler_flag("-arch x86_64" x86_64Supported)
-    
-            set(CMAKE_REQUIRED_LINK_OPTIONS "-arch;arm64")
-            check_c_compiler_flag("-arch arm64" arm64Supported)
-
-            if(x86_64Supported AND arm64Supported)
-                set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE STRING "Build universal architecture for OSX" FORCE)
-            endif()
-    
-            # on mac, use the vanilla pybind11 finder
-            find_package(pybind11)
-            if(pybind11_FOUND)
-                # Found PyBind installed by Homebrew
-                set(PYTHON_PYBIND_FOUND pybind11_FOUND)
-            else()
-                # Check if pip installed PyBind is available
-                find_package(Pybind)
-            endif()
-
-        else()
+        if(NOT MACOS)
             # On Linux/Docker, look for pip installed PyBind only
             find_package(Pybind)
         endif()
