@@ -194,12 +194,20 @@ endif()
 # fix for threads on osx 
 
 if (PSP_PYTHON_BUILD AND MACOS)
-    # assume built-in pthreads on MacOS
-    set(CMAKE_THREAD_LIBS_INIT "-lpthread")
-    set(CMAKE_HAVE_THREADS_LIBRARY 1)
-    set(CMAKE_USE_WIN32_THREADS_INIT 0)
-    set(CMAKE_USE_PTHREADS_INIT 1)
-    set(THREADS_PREFER_PTHREAD_FLAG ON)
+  # assume built-in pthreads on MacOS
+  set(CMAKE_THREAD_LIBS_INIT "-lpthread")
+  set(CMAKE_HAVE_THREADS_LIBRARY 1)
+  set(CMAKE_USE_WIN32_THREADS_INIT 0)
+  set(CMAKE_USE_PTHREADS_INIT 1)
+  set(THREADS_PREFER_PTHREAD_FLAG ON)
+
+  set(CMAKE_REQUIRED_LINK_OPTIONS "-arch;x86_64")
+  check_c_compiler_flag("-arch x86_64" x86_64Supported)
+  set(CMAKE_REQUIRED_LINK_OPTIONS "-arch;arm64")
+  check_c_compiler_flag("-arch arm64" arm64Supported)
+  if(x86_64Supported AND arm64Supported)
+      set(CMAKE_OSX_ARCHITECTURES "x86_64;arm64" CACHE STRING "Build universal architecture for OSX" FORCE)
+  endif()
 endif()
 
 
