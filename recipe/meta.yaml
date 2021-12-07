@@ -15,7 +15,7 @@ build:
   skip: true  # [(win and vc<12) or nodejs<17 or py>37]
 
   script:
-    - yes | cp -r ./recipe/CMakeLists.txt $SRC_DIR/dist/cmake/re2/
+    - yes | cp -r /home/conda/feedstock_root/recipe/CMakeLists.txt $SRC_DIR/dist/cmake/re2/
     - {{ PYTHON }} -m pip install . -vv  # [not win]
     - set PSP_GENERATOR=Visual Studio 14 2015  # [win]
     - {{ PYTHON }} setup.py build_ext install --single-version-externally-managed  --record=record.txt  # [win]
