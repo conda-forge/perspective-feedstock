@@ -191,9 +191,9 @@ else()
     set(BUILD_MESSAGE "${BUILD_MESSAGE}\n${Cyan}Building RELEASE${ColorReset}")
 endif()
 
-# fix for threads on osx 
 
 if (PSP_PYTHON_BUILD AND MACOS)
+    # fix for threads on osx 
     # assume built-in pthreads on MacOS
     set(CMAKE_THREAD_LIBS_INIT "-lpthread")
     set(CMAKE_HAVE_THREADS_LIBRARY 1)
