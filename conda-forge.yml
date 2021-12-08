@@ -7,7 +7,3 @@ azure:
   settings_win:
       pool:
           vmImage: windows-2019
-vc:                            # [win]
-  - 14.1                       # [win]
-MACOSX_SDK_VERSION:            # [osx and x86]
-- '10.15'                      # [osx and x86]
