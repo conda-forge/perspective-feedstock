@@ -15,6 +15,8 @@ build:
   skip: true  # [(win and vc<12) or nodejs<17 or py>37]
 
   script:
+    - export CFLAGS=
+    - export CXXFLAGS=
     - yes | cp -r $RECIPE_DIR/FindRe2.cmake $SRC_DIR/dist/cmake/modules  # [not win]
     - yes | cp -r $RECIPE_DIR/CMakeLists.txt $SRC_DIR/dist/  # [not win]
     - {{ PYTHON }} -m pip install . -vv  # [not win]
@@ -30,8 +32,6 @@ requirements:
     - sysroot_linux-64 2.17  # [linux64]
   host:
     - boost
-    - clangdev 10  # [not (osx and arm64)]
-    - llvmdev 10   # [not (osx and arm64)]
     - flatbuffers
     - nodejs
     - numpy >=1.13.1

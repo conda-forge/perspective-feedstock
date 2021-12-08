@@ -25,6 +25,12 @@ else()
     set(LINUX ON)
 endif()
 
+
+message("${Cyan}CFLAGS: ${CFLAGS}${ColorReset}")
+message("${Cyan}CXXFLAGS: ${CXXFLAGS}${ColorReset}")
+string(REPLACE "-march=core2" "" CFLAGS ${CFLAGS})
+string(REPLACE "-march=core2" "" CXXFLAGS ${CXXFLAGS})
+
 ## Helper function
 function(string_starts_with str search)
     string(FIND "${str}" "${search}" out)
