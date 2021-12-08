@@ -27,8 +27,6 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - cmake
-    - clangdev 13  # [osx]
-    - clang 13  # [osx]
     - make  # [not win]
     - sysroot_linux-64 2.17  # [linux64]
   host:
