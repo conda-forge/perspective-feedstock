@@ -26,10 +26,10 @@ else()
 endif()
 
 
-message("${Cyan}CFLAGS: ${CFLAGS}${ColorReset}")
-message("${Cyan}CXXFLAGS: ${CXXFLAGS}${ColorReset}")
-string(REPLACE "-march=core2" "" CFLAGS ${CFLAGS})
-string(REPLACE "-march=core2" "" CXXFLAGS ${CXXFLAGS})
+message("${Cyan}CFLAGS: ${CMAKE_C_FLAGS}${ColorReset}")
+message("${Cyan}CXXFLAGS: ${CMAKE_CXX_FLAGS}${ColorReset}")
+string(REPLACE "-march=core2" "" CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
+string(REPLACE "-march=core2" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 
 ## Helper function
 function(string_starts_with str search)
@@ -581,7 +581,7 @@ set (PYTHON_BINDING_SOURCE_FILES
 if (WIN32)
     set(CMAKE_CXX_FLAGS " /EHsc /MP /bigobj")
 else()
-    set(CMAKE_CXX_FLAGS " ${CMAKE_CXX_FLAGS} ${CMAKE_C_FLAGS}")
+    set(CMAKE_CXX_FLAGS " ${CMAKE_CXX_FLAGS}")
 endif()
 
 message("${BUILD_MESSAGE}\n")
