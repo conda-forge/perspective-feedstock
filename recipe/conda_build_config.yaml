@@ -1,0 +1,2 @@
+macos_min_version:         # [osx and arm64]
+  - '11'                # [osx and arm64]
