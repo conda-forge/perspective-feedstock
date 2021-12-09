@@ -33,11 +33,14 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake
     - make  # [not win]
+    - nodejs >=14  # [not arm64]
+    - nodejs >=17  # [arm64]
     - sysroot_linux-64 2.17  # [linux64]
   host:
     - boost
     - flatbuffers
-    - nodejs
+    - nodejs >=14  # [not arm64]
+    - nodejs >=17  # [arm64]
     - numpy >=1.13.1
     - python
     - pip
@@ -53,6 +56,9 @@ requirements:
     - six >=1.11.0
     - tornado >=4.5.3
     - traitlets >=4.3.2
+  run_constrained:   # [osx]
+    - __osx >={{ MACOSX_DEPLOYMENT_TARGET|default("10.9") }}  # [osx]
+
 test:
   imports:
     - perspective
