@@ -37,7 +37,6 @@ requirements:
     - cmake
     - flatbuffers
     - numpy >=1.13.1
-    - nodejs
     - make  # [not win]
     - pip
     - pybind11
