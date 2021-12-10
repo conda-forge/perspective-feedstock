@@ -1,4 +1,4 @@
 MACOSX_DEPLOYMENT_TARGET:  # [osx and arm64]
-  - '11'                # [osx and arm64]
+  - '11.0'                # [osx and arm64]
 macos_min_version:         # [osx and arm64]
-  - '11'                # [osx and arm64]
+  - '11.0'                # [osx and arm64]
