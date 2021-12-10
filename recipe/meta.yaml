@@ -33,14 +33,12 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake
     - make  # [not win]
-    - nodejs >=14  # [not arm64]
-    - nodejs >=17  # [arm64]
+    - nodejs
     - sysroot_linux-64 2.17  # [linux64]
   host:
     - boost
     - flatbuffers
-    - nodejs >=14  # [not arm64]
-    - nodejs >=17  # [arm64]
+    - nodejs
     - numpy >=1.13.1
     - python
     - pip
