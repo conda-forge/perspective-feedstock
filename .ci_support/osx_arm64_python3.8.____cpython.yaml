@@ -1,5 +1,5 @@
 MACOSX_DEPLOYMENT_TARGET:
-- '11'
+- '11.0'
 boost:
 - 1.74.0
 c_compiler:
@@ -17,7 +17,7 @@ cxx_compiler_version:
 macos_machine:
 - arm64-apple-darwin20.0.0
 macos_min_version:
-- '11'
+- '11.0'
 pin_run_as_build:
   boost:
     max_pin: x.x.x
