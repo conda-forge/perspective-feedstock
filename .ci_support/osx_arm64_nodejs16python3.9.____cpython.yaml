@@ -18,6 +18,8 @@ macos_machine:
 - arm64-apple-darwin20.0.0
 macos_min_version:
 - '11.0'
+nodejs:
+- '16'
 pin_run_as_build:
   boost:
     max_pin: x.x.x
@@ -25,7 +27,7 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.10.* *_cpython
+- 3.9.* *_cpython
 re2:
 - 2021.11.01
 target_platform:
