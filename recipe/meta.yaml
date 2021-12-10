@@ -29,22 +29,21 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - pybind11                               # [build_platform != target_platform]
-    - boost
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - sysroot_linux-64 2.17  # [linux64]
+  host:
+    - boost
     - cmake
     - flatbuffers
-    - make  # [not win]
+    - numpy >=1.13.1
     - nodejs
+    - make  # [not win]
     - pip
     - pybind11
     - re2
-    - sysroot_linux-64 2.17  # [linux64]
-    - yarn
-  host:
-    - boost
-    - numpy >=1.13.1
     - python
+    - yarn
   run:
     - python
     - ipywidgets >=7.5.1
