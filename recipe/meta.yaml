@@ -15,10 +15,6 @@ build:
   skip: true  # [win and vc<12]
 
   script:
-    # clobber RE2, Arrow, and main CMake file for now
-    - yes | cp -r $RECIPE_DIR/FindRe2.cmake $SRC_DIR/dist/cmake/modules  # [not win]
-    - yes | cp -r $RECIPE_DIR/CMakeLists-arrow.txt $SRC_DIR/dist/cmake/arrow/CMakeLists.txt  # [not win]
-    - yes | cp -r $RECIPE_DIR/CMakeLists.txt $SRC_DIR/dist/  # [not win]
     - {{ PYTHON }} -m pip install . -vv  # [not win]
     - set PSP_GENERATOR=Visual Studio 14 2015  # [win]
     - {{ PYTHON }} setup.py build_ext install --single-version-externally-managed  --record=record.txt  # [win]
