@@ -34,7 +34,7 @@ requirements:
     - python
     - pip
     - pybind11
-    - re2
+    - re2  # [not win]
     - yarn
   run:
     - python
