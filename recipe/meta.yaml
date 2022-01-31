@@ -11,7 +11,7 @@ source:
   sha256: 17d520bc1c1e6749751bfa246ab773268b2c08d1306f34823543652aad93e202
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win and vc<12]
 
   script:
