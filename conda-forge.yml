@@ -5,5 +5,8 @@ os_version:
 
 azure:
   settings_win:
-      pool:
-          vmImage: windows-2019
+    pool:
+      vmImage: windows-2019
+github:
+  branch_name: main
+  tooling_branch_name: main
