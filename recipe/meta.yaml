@@ -11,8 +11,7 @@ source:
   sha256: 57892c345fb9c88e2ca54fda1b7bca3909c8936393c6aab23d0410fc4d149345
 
 build:
-  number: 0
-  skip: true  # [win and vc<12]
+  number: 1
 
   script:
     - {{ PYTHON }} -m pip install . -vv  # [not win]
@@ -33,7 +32,7 @@ requirements:
   host:
     - boost
     - nodejs
-    - numpy >=1.13.1
+    - numpy
     - python
     - pip
     - pybind11
