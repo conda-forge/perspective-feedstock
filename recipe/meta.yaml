@@ -11,8 +11,7 @@ source:
   sha256: 57892c345fb9c88e2ca54fda1b7bca3909c8936393c6aab23d0410fc4d149345
 
 build:
-  number: 1
-  skip: true  # [win and vc<12]
+  number: 2
 
   script:
     - {{ PYTHON }} -m pip install . -vv  # [not win]
@@ -21,6 +20,10 @@ build:
 
 requirements:
   build:
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - numpy                                  # [build_platform != target_platform]
+    - pybind11                               # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - cmake
@@ -29,7 +32,7 @@ requirements:
   host:
     - boost
     - nodejs
-    - numpy >=1.13.1
+    - numpy
     - python
     - pip
     - pybind11
