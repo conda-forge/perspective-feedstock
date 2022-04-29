@@ -11,7 +11,7 @@ source:
   sha256: 57892c345fb9c88e2ca54fda1b7bca3909c8936393c6aab23d0410fc4d149345
 
 build:
-  number: 2
+  number: 3
 
   script:
     - {{ PYTHON }} -m pip install . -vv  # [not win]
@@ -33,18 +33,17 @@ requirements:
     - boost
     - nodejs
     - numpy
-    - python
     - pip
     - pybind11
+    - python
     - re2  # [not win]
     - yarn
   run:
-    - python
     - ipywidgets >=7.5.1
     - {{ pin_compatible('numpy') }}
     - pandas >=0.22.0
+    - python
     - python-dateutil >=2.8.0
-    - six >=1.11.0
     - tornado >=4.5.3
     - traitlets >=4.3.2
 test:
