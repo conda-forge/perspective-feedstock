@@ -12,7 +12,7 @@ source:
 
 build:
   number: 5
-  script: []
+  script:
     - {{ PYTHON }} -m pip install . -vv  # [not win]
     - set PSP_GENERATOR=Visual Studio 14 2015  # [win]
     - {{ PYTHON }} setup.py build_ext install --single-version-externally-managed  --record=record.txt  # [win]
@@ -69,6 +69,7 @@ outputs:
         - python
       run:
         - python
+      run:
         - {{ pin_subpackage("perspective", max_pin="x.x.x") }}
 
     test:
