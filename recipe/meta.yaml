@@ -18,32 +18,10 @@ build:
     - {{ PYTHON }} setup.py build_ext install --single-version-externally-managed  --record=record.txt  # [win]
 
 requirements:
-  build:
-    - python                                 # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - numpy                                  # [build_platform != target_platform]
-    - pybind11                               # [build_platform != target_platform]
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
-    - cmake
-    - make  # [not win]
   host:
-    - boost
-    - nodejs
-    - numpy
-    - pip
-    - pybind11
     - python
-    - re2  # [not win]
-    - yarn
   run:
-    - ipywidgets >=7.5.1
-    - {{ pin_compatible('numpy') }}
-    - pandas >=0.22.0
     - python
-    - python-dateutil >=2.8.0
-    - tornado >=4.5.3
-    - traitlets >=4.3.2
 
 outputs:
   - name: perspective
