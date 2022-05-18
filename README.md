@@ -339,6 +339,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-perspective-green.svg)](https://anaconda.org/conda-forge/perspective) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/perspective.svg)](https://anaconda.org/conda-forge/perspective) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/perspective.svg)](https://anaconda.org/conda-forge/perspective) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/perspective.svg)](https://anaconda.org/conda-forge/perspective) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-perspective--python-green.svg)](https://anaconda.org/conda-forge/perspective-python) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/perspective-python.svg)](https://anaconda.org/conda-forge/perspective-python) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/perspective-python.svg)](https://anaconda.org/conda-forge/perspective-python) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/perspective-python.svg)](https://anaconda.org/conda-forge/perspective-python) |
 
 Installing perspective
 ======================
@@ -350,16 +351,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `perspective` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `perspective, perspective-python` can be installed with `conda`:
 
 ```
-conda install perspective
+conda install perspective perspective-python
 ```
 
 or with `mamba`:
 
 ```
-mamba install perspective
+mamba install perspective perspective-python
 ```
 
 It is possible to list all of the versions of `perspective` available on your platform with `conda`:
@@ -457,7 +458,4 @@ Feedstock Maintainers
 * [@sc1f](https://github.com/sc1f/)
 * [@texodus](https://github.com/texodus/)
 * [@timkpaine](https://github.com/timkpaine/)
-
-
-<!-- dummy commit to enable rerendering -->
 
