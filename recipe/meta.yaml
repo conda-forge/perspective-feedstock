@@ -31,7 +31,7 @@ outputs:
         - python                                 # [build_platform != target_platform]
         - cross-python_{{ target_platform }}     # [build_platform != target_platform]
         - numpy                                  # [build_platform != target_platform]
-        - pybind11                               # [build_platform != target_platform]
+        - pybind11                               # [build_platform != target_platform and not win]
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
         - cmake
@@ -41,7 +41,8 @@ outputs:
         - nodejs
         - numpy
         - pip
-        - pybind11
+        - pybind11 <2.10  # [win]
+        - pybind11  # [not win]
         - python
         - re2  # [not win]
         - yarn
