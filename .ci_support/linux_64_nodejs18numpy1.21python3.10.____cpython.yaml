@@ -17,9 +17,9 @@ cxx_compiler_version:
 docker_image:
 - quay.io/condaforge/linux-anvil-cos7-x86_64
 nodejs:
-- '17'
+- '18'
 numpy:
-- '1.19'
+- '1.21'
 pin_run_as_build:
   boost:
     max_pin: x.x.x
@@ -27,7 +27,7 @@ pin_run_as_build:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.8.* *_cpython
+- 3.10.* *_cpython
 re2:
 - 2022.06.01
 target_platform:
