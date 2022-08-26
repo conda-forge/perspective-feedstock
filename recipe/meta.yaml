@@ -47,16 +47,23 @@ outputs:
         - re2  # [not win]
         - yarn
       run:
-        - ipywidgets >=7.5.1
+        - python
+        # base
+        - ipywidgets >=7.5.1,<8
+        - future >=0.16.0
         - {{ pin_compatible('numpy') }}
         - pandas >=0.22.0
-        - python
         - python-dateutil >=2.8.0
-        - tornado >=4.5.3
         - traitlets >=4.3.2
-      run_constrained:
-        - {{ pin_subpackage("perspective-python", max_pin="x.x.x") }}
-
+        # aiohttp
+        - aiohttp
+        # jupyter
+        - jupyterlab >=3.2,<4
+        # fastapi/starlette
+        - fastapi
+        - starlette
+        # tornado
+        - tornado >=4.5.3,<6.2
     test:
       imports:
         - perspective
@@ -70,7 +77,22 @@ outputs:
         - python
       run:
         - python
-        - {{ pin_subpackage("perspective", max_pin="x.x.x") }}
+        - {{ pin_subpackage("perspective", exact=True) }}
+
+    test:
+      imports:
+        - perspective
+        - perspective.table
+        
+  - name: perspective_python
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python
+      run:
+        - python
+        - {{ pin_subpackage("perspective", exact=True) }}
 
     test:
       imports:
