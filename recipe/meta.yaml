@@ -38,12 +38,11 @@ requirements:
     - re2  # [not win]
     - yarn
   run:
-    - ipywidgets >=7.5.1
+    - ipywidgets >=7.5.1,<8
     - {{ pin_compatible('numpy') }}
     - pandas >=0.22.0
     - python
     - python-dateutil >=2.8.0
-    - tornado >=4.5.3
     - traitlets >=4.3.2
 
 test:
@@ -53,6 +52,7 @@ test:
 
 outputs:
    - name: perspective
+
    - name: perspective-python
      build:
        noarch: python
@@ -61,6 +61,7 @@ outputs:
          - python
        run:
          - {{ pin_subpackage("perspective", exact=True) }}
+
    - name: perspective_python
      build:
        noarch: python
