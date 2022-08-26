@@ -62,14 +62,14 @@ outputs:
        run:
          - {{ pin_subpackage("perspective", exact=True) }}
 
-   - name: perspective_python
-     build:
-       noarch: python
-     requirements:
-       host:
-         - python
-       run:
-         - {{ pin_subpackage("perspective-python", exact=True) }}
+   # - name: perspective_python
+   #   build:
+   #     noarch: python
+   #   requirements:
+   #     host:
+   #       - python
+   #     run:
+   #       - {{ pin_subpackage("perspective-python", exact=True) }}
 
 about:
   home: http://github.com/finos/perspective
