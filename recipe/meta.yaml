@@ -64,6 +64,10 @@ outputs:
         - starlette
         # tornado
         - tornado >=4.5.3,<6.2
+      run_constrained:
+        - python
+        - {{ pin_subpackage("perspective", exact=True) }}
+
     test:
       imports:
         - perspective
@@ -83,7 +87,7 @@ outputs:
       imports:
         - perspective
         - perspective.table
-        
+
   - name: perspective_python
     build:
       noarch: python
