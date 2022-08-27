@@ -39,21 +39,16 @@ requirements:
     - yarn
   run:
     - python
-    # base
     - ipywidgets >=7.5.1,<8
     - future >=0.16.0
     - {{ pin_compatible('numpy') }}
     - pandas >=0.22.0
     - python-dateutil >=2.8.0
     - traitlets >=4.3.2
-    # aiohttp
     - aiohttp
-    # jupyter
     - jupyterlab >=3.2,<4
-    # fastapi/starlette
     - fastapi
     - starlette
-    # tornado
     - tornado >=4.5.3,<6.2
 
 test:
@@ -89,9 +84,7 @@ about:
   license_family: Apache
   license_file: dist/LICENSE
   summary: Streaming pivot visualization via WebAssembly
-
-  description: |
-    Streaming pivot visualization via WebAssembly
+  description: Streaming pivot visualization via WebAssembly
   dev_url: https://github.com/finos/perspective
 
 extra:
