@@ -63,16 +63,6 @@ test:
 
 outputs:
   - name: perspective
-  - name: perspective_python
-    build:
-      noarch: python
-    requirements:
-      host:
-        - python
-      run:
-        - python
-        - {{ pin_subpackage("perspective", exact=True) }}
-
   - name: perspective-python
     build:
       noarch: python
@@ -82,6 +72,18 @@ outputs:
       run:
         - python
         - {{ pin_subpackage("perspective", exact=True) }}
+
+  # TODO this is supposed to work, but fails with weird
+  # bugs. Try again in the future
+  # - name: perspective_python
+  #   build:
+  #     noarch: python
+  #   requirements:
+  #     host:
+  #       - python
+  #     run:
+  #       - python
+  #       - {{ pin_subpackage("perspective", exact=True) }}
 
 about:
   home: http://github.com/finos/perspective
