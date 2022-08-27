@@ -39,16 +39,21 @@ requirements:
     - yarn
   run:
     - python
+    # base
     - ipywidgets >=7.5.1,<8
     - future >=0.16.0
     - {{ pin_compatible('numpy') }}
     - pandas >=0.22.0
     - python-dateutil >=2.8.0
     - traitlets >=4.3.2
+    # aiohttp
     - aiohttp
+    # jupyter
     - jupyterlab >=3.2,<4
+    # fastapi/starlette
     - fastapi
     - starlette
+    # tornado
     - tornado >=4.5.3,<6.2
 
 test:
@@ -59,24 +64,24 @@ test:
 outputs:
   - name: perspective
   - name: perspective_python
-      build:
-        noarch: python
-      requirements:
-        host:
-          - python
-        run:
-          - python
-          - {{ pin_subpackage("perspective", exact=True) }}
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python
+      run:
+        - python
+        - {{ pin_subpackage("perspective", exact=True) }}
 
   - name: perspective-python
-      build:
-        noarch: python
-      requirements:
-        host:
-          - python
-        run:
-          - python
-          - {{ pin_subpackage("perspective", exact=True) }}
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python
+      run:
+        - python
+        - {{ pin_subpackage("perspective", exact=True) }}
 
 about:
   home: http://github.com/finos/perspective
