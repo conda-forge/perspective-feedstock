@@ -1,6 +1,6 @@
 {% set name = "perspective" %}
 {% set pypi_name = "perspective-python" %}
-{% set version = "1.6.3" %}
+{% set version = "1.6.5" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ pypi_name[0] }}/{{ pypi_name }}/{{ pypi_name }}-{{ version }}.tar.gz
-  sha256: bbae829218c27f08297c26c9bf18be1e39cefc18add3ad2c293d263c12d3485d
+  sha256: 76674bcc739bb381ae3e7a36e823c3a945b6d3d96c6c4faa10e7bdbbba4bf214
 
 build:
   number: 0
@@ -18,50 +18,51 @@ build:
     - {{ PYTHON }} setup.py build_ext install --single-version-externally-managed  --record=record.txt  # [win]
 
 requirements:
+  build:
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - numpy                                  # [build_platform != target_platform]
+    - pybind11                               # [build_platform != target_platform and not win]
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - cmake
+    - make  # [not win]
   host:
+    - boost
+    - nodejs
+    - numpy
+    - pip
+    - pybind11 <2.10  # [win]
+    - pybind11  # [not win]
     - python
+    - re2  # [not win]
+    - yarn
   run:
     - python
+    # base
+    - ipywidgets >=7.5.1,<8
+    - future >=0.16.0
+    - {{ pin_compatible('numpy') }}
+    - pandas >=0.22.0
+    - python-dateutil >=2.8.0
+    - traitlets >=4.3.2
+    # aiohttp
+    - aiohttp
+    # jupyter
+    - jupyterlab >=3.2,<4
+    # fastapi/starlette
+    - fastapi
+    - starlette
+    # tornado
+    - tornado >=4.5.3,<6.2
+
+test:
+  imports:
+    - perspective
+    - perspective.table
 
 outputs:
   - name: perspective
-
-    requirements:
-      build:
-        - python                                 # [build_platform != target_platform]
-        - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-        - numpy                                  # [build_platform != target_platform]
-        - pybind11                               # [build_platform != target_platform and not win]
-        - {{ compiler('c') }}
-        - {{ compiler('cxx') }}
-        - cmake
-        - make  # [not win]
-      host:
-        - boost
-        - nodejs
-        - numpy
-        - pip
-        - pybind11 <2.10  # [win]
-        - pybind11  # [not win]
-        - python
-        - re2  # [not win]
-        - yarn
-      run:
-        - ipywidgets >=7.5.1
-        - {{ pin_compatible('numpy') }}
-        - pandas >=0.22.0
-        - python
-        - python-dateutil >=2.8.0
-        - tornado >=4.5.3
-        - traitlets >=4.3.2
-      run_constrained:
-        - {{ pin_subpackage("perspective-python", max_pin="x.x.x") }}
-
-    test:
-      imports:
-        - perspective
-        - perspective.table
-
   - name: perspective-python
     build:
       noarch: python
@@ -70,12 +71,19 @@ outputs:
         - python
       run:
         - python
-        - {{ pin_subpackage("perspective", max_pin="x.x.x") }}
+        - {{ pin_subpackage("perspective", exact=True) }}
 
-    test:
-      imports:
-        - perspective
-        - perspective.table
+  # TODO this is supposed to work, but fails with weird
+  # bugs. Try again in the future
+  # - name: perspective_python
+  #   build:
+  #     noarch: python
+  #   requirements:
+  #     host:
+  #       - python
+  #     run:
+  #       - python
+  #       - {{ pin_subpackage("perspective", exact=True) }}
 
 about:
   home: http://github.com/finos/perspective
@@ -83,9 +91,7 @@ about:
   license_family: Apache
   license_file: dist/LICENSE
   summary: Streaming pivot visualization via WebAssembly
-
-  description: |
-    Streaming pivot visualization via WebAssembly
+  description: Streaming pivot visualization via WebAssembly
   dev_url: https://github.com/finos/perspective
 
 extra:
