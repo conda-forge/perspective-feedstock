@@ -18,77 +18,56 @@ build:
     - {{ PYTHON }} setup.py build_ext install --single-version-externally-managed  --record=record.txt  # [win]
 
 requirements:
+  build:
+    - python                                 # [build_platform != target_platform]
+    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
+    - numpy                                  # [build_platform != target_platform]
+    - pybind11                               # [build_platform != target_platform and not win]
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - cmake
+    - make  # [not win]
   host:
+    - boost
+    - nodejs
+    - numpy
+    - pip
+    - pybind11 <2.10  # [win]
+    - pybind11  # [not win]
     - python
+    - re2  # [not win]
+    - yarn
   run:
     - python
+    # base
+    - ipywidgets >=7.5.1,<8
+    - future >=0.16.0
+    - {{ pin_compatible('numpy') }}
+    - pandas >=0.22.0
+    - python-dateutil >=2.8.0
+    - traitlets >=4.3.2
+    # aiohttp
+    - aiohttp
+    # jupyter
+    - jupyterlab >=3.2,<4
+    # fastapi/starlette
+    - fastapi
+    - starlette
+    # tornado
+    - tornado >=4.5.3,<6.2
+  run_constrained:
+    - python
+    - {{ pin_subpackage("perspective", exact=True) }}
+
+test:
+  imports:
+    - perspective
+    - perspective.table
 
 outputs:
   - name: perspective
 
-    requirements:
-      build:
-        - python                                 # [build_platform != target_platform]
-        - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-        - numpy                                  # [build_platform != target_platform]
-        - pybind11                               # [build_platform != target_platform and not win]
-        - {{ compiler('c') }}
-        - {{ compiler('cxx') }}
-        - cmake
-        - make  # [not win]
-      host:
-        - boost
-        - nodejs
-        - numpy
-        - pip
-        - pybind11 <2.10  # [win]
-        - pybind11  # [not win]
-        - python
-        - re2  # [not win]
-        - yarn
-      run:
-        - python
-        # base
-        - ipywidgets >=7.5.1,<8
-        - future >=0.16.0
-        - {{ pin_compatible('numpy') }}
-        - pandas >=0.22.0
-        - python-dateutil >=2.8.0
-        - traitlets >=4.3.2
-        # aiohttp
-        - aiohttp
-        # jupyter
-        - jupyterlab >=3.2,<4
-        # fastapi/starlette
-        - fastapi
-        - starlette
-        # tornado
-        - tornado >=4.5.3,<6.2
-      run_constrained:
-        - python
-        - {{ pin_subpackage("perspective", exact=True) }}
-
-    test:
-      imports:
-        - perspective
-        - perspective.table
-
-  - name: perspective-python
-    build:
-      noarch: python
-    requirements:
-      host:
-        - python
-      run:
-        - python
-        - {{ pin_subpackage("perspective", exact=True) }}
-
-    test:
-      imports:
-        - perspective
-        - perspective.table
-
-  - name: perspective_python
+- name: perspective-python
     build:
       noarch: python
     requirements:
