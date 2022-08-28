@@ -11,7 +11,7 @@ source:
   sha256: 76674bcc739bb381ae3e7a36e823c3a945b6d3d96c6c4faa10e7bdbbba4bf214
 
 build:
-  number: 0
+  number: 1
   script:
     - {{ PYTHON }} -m pip install . -vv  # [not win]
     - set PSP_GENERATOR=Visual Studio 14 2015  # [win]
