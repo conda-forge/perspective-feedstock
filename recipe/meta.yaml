@@ -11,7 +11,7 @@ source:
   sha256: ae1286995ceaa82db6dbb0e54ca3da7be8650e6579a84def8df18fe6942a2574
 
 build:
-  number: 0
+  number: 1
   script:
     - {{ PYTHON }} -m pip install . -vv  # [not win]
     - set PSP_GENERATOR=Visual Studio 14 2015  # [win]
@@ -39,22 +39,12 @@ requirements:
     - yarn
   run:
     - python
-    # base
     - ipywidgets >=7.5.1,<8
     - future >=0.16.0
     - {{ pin_compatible('numpy') }}
     - pandas >=0.22.0
     - python-dateutil >=2.8.0
     - traitlets >=4.3.2
-    # aiohttp
-    - aiohttp
-    # jupyter
-    - jupyterlab >=3.2,<4
-    # fastapi/starlette
-    - fastapi
-    - starlette
-    # tornado
-    - tornado >=4.5.3,<6.2
 
 test:
   imports:
@@ -63,6 +53,8 @@ test:
 
 outputs:
   - name: perspective
+
+  # Dash alias to match pypi
   - name: perspective-python
     build:
       noarch: python
@@ -71,6 +63,52 @@ outputs:
         - python
       run:
         - python
+        - {{ pin_subpackage("perspective", exact=True) }}
+
+  # Subpackages
+  - name: perspective-aiohttp
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python
+      run:
+        - python
+        - aiohttp
+        - {{ pin_subpackage("perspective", exact=True) }}
+
+  - name: perspective-jupyter
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python
+      run:
+        - python
+        - jupyterlab >=3.2,<4
+        - {{ pin_subpackage("perspective", exact=True) }}
+
+  - name: perspective-fastapi
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python
+      run:
+        - python
+        - fastapi
+        - starlette
+        - {{ pin_subpackage("perspective", exact=True) }}
+
+  - name: perspective-tornado
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python
+      run:
+        - python
+        - tornado >=4.5.3,<6.2
         - {{ pin_subpackage("perspective", exact=True) }}
 
   # TODO this is supposed to work, but fails with weird
