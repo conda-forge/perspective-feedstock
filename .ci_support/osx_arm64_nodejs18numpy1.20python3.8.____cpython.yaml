@@ -1,7 +1,7 @@
 MACOSX_DEPLOYMENT_TARGET:
-- '10.9'
+- '11.0'
 boost:
-- 1.78.0
+- 1.74.0
 c_compiler:
 - clang
 c_compiler_version:
@@ -15,11 +15,11 @@ cxx_compiler:
 cxx_compiler_version:
 - '14'
 macos_machine:
-- x86_64-apple-darwin13.4.0
+- arm64-apple-darwin20.0.0
 nodejs:
-- '16'
+- '18'
 numpy:
-- '1.19'
+- '1.20'
 pin_run_as_build:
   boost:
     max_pin: x.x.x
@@ -31,7 +31,7 @@ python:
 re2:
 - 2022.06.01
 target_platform:
-- osx-64
+- osx-arm64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
