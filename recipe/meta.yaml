@@ -11,7 +11,7 @@ source:
   sha256: ae1286995ceaa82db6dbb0e54ca3da7be8650e6579a84def8df18fe6942a2574
 
 build:
-  number: 0
+  number: 1
   script:
     - {{ PYTHON }} -m pip install . -vv  # [not win]
     - set PSP_GENERATOR=Visual Studio 14 2015  # [win]
@@ -46,13 +46,14 @@ requirements:
     - pandas >=0.22.0
     - python-dateutil >=2.8.0
     - traitlets >=4.3.2
+  run_constrained:
     # aiohttp
-    - aiohttp
+    - aiohttp >=3
     # jupyter
     - jupyterlab >=3.2,<4
     # fastapi/starlette
-    - fastapi
-    - starlette
+    - fastapi >=0.70
+    - starlette >=0.20
     # tornado
     - tornado >=4.5.3,<6.2
 
