@@ -1,6 +1,6 @@
 {% set name = "perspective" %}
 {% set pypi_name = "perspective-python" %}
-{% set version = "1.7.1" %}
+{% set version = "1.9.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,10 +8,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ pypi_name[0] }}/{{ pypi_name }}/{{ pypi_name }}-{{ version }}.tar.gz
-  sha256: ae1286995ceaa82db6dbb0e54ca3da7be8650e6579a84def8df18fe6942a2574
+  sha256: 18a0b25acde85bb5be83cbbf179f5e8ba0eb96db76bf8651d3f74d2115742c6b
 
 build:
-  number: 1
+  number: 0
   script:
     - {{ PYTHON }} -m pip install . -vv  # [not win]
     - set PSP_GENERATOR=Visual Studio 14 2015  # [win]
