@@ -1,6 +1,6 @@
 {% set name = "perspective" %}
 {% set pypi_name = "perspective-python" %}
-{% set version = "1.7.2" %}
+{% set version = "1.8.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ pypi_name[0] }}/{{ pypi_name }}/{{ pypi_name }}-{{ version }}.tar.gz
-  sha256: 436a52bab95c3a0a2797bab15a74778103fabe600c02679798d171ba9ef72940
+  sha256: 57d98de9fc84b62d5dbc1261b19584e1a518a7f18b103e295145f0df6e7bb27c
 
 build:
   number: 0
@@ -43,19 +43,19 @@ requirements:
     - python
     # base
     - ipywidgets >=7.5.1,<8
-    - future >=0.16.0
+    - future >=0.16.0,<1
     - {{ pin_compatible('numpy') }}
-    - pandas >=0.22.0
-    - python-dateutil >=2.8.0
-    - traitlets >=4.3.2
+    - pandas >=0.22.0,<2
+    - python-dateutil >=2.8.0,<3
+    - traitlets >=4.3.2,<6
   run_constrained:
     # aiohttp
-    - aiohttp >=3
+    - aiohttp >=3,<4
     # jupyter
     - jupyterlab >=3.2,<4
     # fastapi/starlette
-    - fastapi >=0.70
-    - starlette >=0.20
+    - fastapi >=0.70,<1
+    - starlette >=0.20,<1
     # tornado
     - tornado >=4.5.3,<6.2
 
