@@ -1,6 +1,6 @@
 {% set name = "perspective" %}
 {% set pypi_name = "perspective-python" %}
-{% set version = "1.8.1" %}
+{% set version = "1.9.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ pypi_name[0] }}/{{ pypi_name }}/{{ pypi_name }}-{{ version }}.tar.gz
-  sha256: 9811b27c17e2bd4d8d857efe1e67b08ddf3397cd8fb03a9a5b55890eb230b4a9
+  sha256: 18a0b25acde85bb5be83cbbf179f5e8ba0eb96db76bf8651d3f74d2115742c6b
 
 build:
   number: 0
@@ -37,7 +37,6 @@ requirements:
     - pybind11 <2.10  # [win]
     - pybind11  # [not win]
     - python
-    - re2  # [not win]
     - yarn
   run:
     - python
