@@ -37,7 +37,6 @@ requirements:
     - pybind11 <2.10  # [win]
     - pybind11  # [not win]
     - python
-    - re2  # [not win]
     - yarn
   run:
     - python
