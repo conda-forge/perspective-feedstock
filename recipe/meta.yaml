@@ -1,14 +1,15 @@
 {% set name = "perspective" %}
 {% set pypi_name = "perspective-python" %}
-{% set version = "1.9.3" %}
+{% set version = "1.9.4" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ pypi_name[0] }}/{{ pypi_name }}/{{ pypi_name }}-{{ version }}.tar.gz
-  sha256: 87399e1bb227652bf777932c5a97859a0eb9465ae5303ab0a2529010c248f2cb
+  # url: https://pypi.io/packages/source/{{ pypi_name[0] }}/{{ pypi_name }}/{{ pypi_name }}-{{ version }}.tar.gz
+  url: https://github.com/finos/perspective/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: 49db53e2a129d63b785bf62c8b854f34887eb2d5bb8f38cf0a3048b729a48a48
 
 build:
   number: 0
@@ -41,7 +42,7 @@ requirements:
   run:
     - python
     # base
-    - ipywidgets >=7.5.1,<8
+    - ipywidgets >=7.5.1,<9
     - future >=0.16.0,<1
     - {{ pin_compatible('numpy') }}
     - pandas >=0.22.0,<2
@@ -56,7 +57,7 @@ requirements:
     - fastapi >=0.70,<1
     - starlette >=0.20,<1
     # tornado
-    - tornado >=4.5.3,<6.2
+    - tornado >=4.5.3,<7
 
 test:
   imports:
