@@ -41,7 +41,7 @@ requirements:
   run:
     - python
     # base
-    - ipywidgets >=7.5.1,<8
+    - ipywidgets >=7.5.1,<9
     - future >=0.16.0,<1
     - {{ pin_compatible('numpy') }}
     - pandas >=0.22.0,<2
@@ -56,7 +56,7 @@ requirements:
     - fastapi >=0.70,<1
     - starlette >=0.20,<1
     # tornado
-    - tornado >=4.5.3,<6.2
+    - tornado >=4.5.3,<7
 
 test:
   imports:
