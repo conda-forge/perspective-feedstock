@@ -11,7 +11,7 @@ source:
   sha256: 86b481cdd4d7609160a535eaccdb5941395b00aba532e2aa8029036dafc8e45a
 
 build:
-  number: 0
+  number: 1
   script:
     - rm  -f perspective/table/libbinding.so perspective/table/libpsp.so  # [not win]
     - del /f "perspective\table\libbinding.so" "perspective\table\libpsp.so"  # [win]
