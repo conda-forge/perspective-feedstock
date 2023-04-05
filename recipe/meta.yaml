@@ -32,6 +32,7 @@ requirements:
     - jupyter_packaging <=1
   host:
     - boost
+    - jupyter_packaging <=1
     - nodejs
     - numpy
     - pip
