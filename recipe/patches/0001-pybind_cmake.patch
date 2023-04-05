@@ -4,13 +4,13 @@ Date: Wed, 5 Apr 2023 11:09:32 -0400
 Subject: [PATCH] pybind_cmake
 
 ---
- cpp/perspective/CMakeLists.txt | 4 ++--
+ dist/CMakeLists.txt | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/cpp/perspective/CMakeLists.txt b/cpp/perspective/CMakeLists.txt
+diff --git a/dist/CMakeLists.txt b/dist/CMakeLists.txt
 index aafd8e649..94ed422d4 100644
---- a/cpp/perspective/CMakeLists.txt
-+++ b/cpp/perspective/CMakeLists.txt
+--- a/dist/CMakeLists.txt
++++ b/dist/CMakeLists.txt
 @@ -324,8 +324,8 @@ elseif(PSP_CPP_BUILD OR PSP_PYTHON_BUILD)
              find_package(Python ${PSP_PYTHON_VERSION} EXACT REQUIRED COMPONENTS Interpreter Development)
  
