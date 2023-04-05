@@ -9,6 +9,8 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ pypi_name[0] }}/{{ pypi_name }}/{{ pypi_name }}-{{ version }}.tar.gz
   sha256: 81da61671b76998d0b85e80f0cd69b98bb107fed427390f924c8f7dd948fe0cf
+  patches:
+    - patches/0001-pybind_cmake.patch  # [win]
 
 build:
   number: 0
@@ -18,8 +20,6 @@ build:
     - {{ PYTHON }} -m pip install . -vv  # [not win]
     - set PSP_GENERATOR=Visual Studio 14 2015  # [win]
     - {{ PYTHON }} setup.py build_ext install --single-version-externally-managed  --record=record.txt  # [win]
-  patches:
-    - patches/0001-pybind_cmake.patch  # [win]
 
 requirements:
   build:
