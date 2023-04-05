@@ -18,6 +18,8 @@ build:
     - {{ PYTHON }} -m pip install . -vv  # [not win]
     - set PSP_GENERATOR=Visual Studio 14 2015  # [win]
     - {{ PYTHON }} setup.py build_ext install --single-version-externally-managed  --record=record.txt  # [win]
+  patches:
+    - patches/0001-pybind_cmake.patch  # [win]
 
 requirements:
   build:
