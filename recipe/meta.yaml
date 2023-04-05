@@ -29,6 +29,7 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake
     - make  # [not win]
+    - jupyter_packaging <=1
   host:
     - boost
     - nodejs
