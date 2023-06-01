@@ -1,6 +1,6 @@
 {% set name = "perspective" %}
 {% set pypi_name = "perspective-python" %}
-{% set version = "2.1.4" %}
+{% set version = "2.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ pypi_name[0] }}/{{ pypi_name }}/{{ pypi_name }}-{{ version }}.tar.gz
-  sha256: affc30695adcae267d5052b2c3cd9420d65a99328b3913b89c438168a4bc2c79
+  sha256: a73d2682e665e7fb826e37ad61c2f7e2035e0bd06c60a6d4ade6cc7804086059
   patches:
     - patches/0001-pybind_cmake.patch  # [win]
 
