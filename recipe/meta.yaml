@@ -9,8 +9,6 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ pypi_name[0] }}/{{ pypi_name }}/{{ pypi_name }}-{{ version }}.tar.gz
   sha256: c7f679c3427f568f1817f2e189d853e683a202991c1736686cfa56149dfb5b31
-  patches:
-    - patches/0001-pybind_cmake.patch  # [win]
 
 build:
   number: 0
@@ -38,8 +36,7 @@ requirements:
     - nodejs
     - numpy
     - pip
-    - pybind11 <2.10  # [win]
-    - pybind11  # [not win]
+    - pybind11
     - python
     - yarn
   run:
