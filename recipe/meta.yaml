@@ -13,7 +13,7 @@ source:
     - patches/0001-pybind_cmake.patch  # [win]
 
 build:
-  number: 0
+  number: 1
   script:
     - rm  -f perspective/table/libbinding.so perspective/table/libpsp.so  # [not win]
     - del /f "perspective\table\libbinding.so" "perspective\table\libpsp.so"  # [win]
