@@ -13,14 +13,13 @@ source:
     - patches/0001-pybind_cmake.patch  # [win]
 
 build:
-  number: 1
+  number: 2
   script:
     - rm  -f perspective/table/libbinding.so perspective/table/libpsp.so  # [not win]
     - del /f "perspective\table\libbinding.so" "perspective\table\libpsp.so"  # [win]
     - {{ PYTHON }} -m pip install . -vv  # [not win]
     - set PSP_GENERATOR=Visual Studio 14 2015  # [win]
     - {{ PYTHON }} setup.py build_ext install --single-version-externally-managed  --record=record.txt  # [win]
-  skip: true  # [win]
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
