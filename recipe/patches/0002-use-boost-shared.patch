@@ -18,7 +18,19 @@ index 6a7af9e6c..badf261d2 100644
 -        set(Boost_USE_STATIC_LIBS ON)
          find_package(Boost REQUIRED COMPONENTS system thread)
      endif()
- 
+
+ @@ -585,9 +584,9 @@ elseif(PSP_CPP_BUILD OR PSP_PYTHON_BUILD)
+
+         # module_origin_path is the location of the binary
+         if(MACOS)
+-            set(module_origin_path "@loader_path/")
++            set(module_origin_path "@loader_path/:@loader_path/../../../../")
+         else()
+-            set(module_origin_path "\$ORIGIN")
++            set(module_origin_path "\$ORIGIN:\$ORIGIN/../../../../")
+         endif()
+     else()
+         set(CMAKE_SHARED_LIBRARY_PREFIX lib)
 -- 
 2.41.0
 
