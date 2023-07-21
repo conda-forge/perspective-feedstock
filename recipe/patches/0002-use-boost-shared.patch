@@ -4,13 +4,13 @@ Date: Fri, 21 Jul 2023 16:00:38 -0400
 Subject: [PATCH] use boost shared
 
 ---
- cpp/perspective/CMakeLists.txt | 1 -
+ dist/CMakeLists.txt | 1 -
  1 file changed, 1 deletion(-)
 
-diff --git a/cpp/perspective/CMakeLists.txt b/cpp/perspective/CMakeLists.txt
+diff --git a/dist/CMakeLists.txt b/dist/CMakeLists.txt
 index 6a7af9e6c..badf261d2 100644
---- a/cpp/perspective/CMakeLists.txt
-+++ b/cpp/perspective/CMakeLists.txt
+--- a/dist/CMakeLists.txt
++++ b/dist/CMakeLists.txt
 @@ -294,7 +294,6 @@ elseif(PSP_CPP_BUILD OR PSP_PYTHON_BUILD)
          set(CMAKE_FIND_ROOT_PATH "${CMAKE_FIND_ROOT_PATH};/usr/local/")
          find_package(Boost REQUIRED)

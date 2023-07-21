@@ -5,8 +5,7 @@ Subject: [PATCH] pybind_cmake
 
 ---
  dist/cmake/modules/FindNumPy.cmake  | 2 +-
- dist/CMakeLists.txt | 4 ++--
- 2 files changed, 3 insertions(+), 3 deletions(-)
+ 1 files changed, 1 insertions(+), 1 deletions(-)
 
 diff --git a/dist/cmake/modules/FindNumPy.cmake b/dist/cmake/modules/FindNumPy.cmake
 index 4129be077..14ad03cdb 100644
