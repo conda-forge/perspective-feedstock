@@ -11,18 +11,16 @@ source:
   sha256: b0e3c28fe87c7bf8f5bfd30dd5e76b043b716f06ea41faa4485f6cb794750401
   patches:
     - patches/0001-pybind_cmake.patch  # [win]
+    - patches/0002-use-boost-shared.patch
 
 build:
   number: 0
   script:
-    - ./build_boost_static.sh  # [not win]
     - rm  -f perspective/table/libbinding.so perspective/table/libpsp.so  # [not win]
     - del /f "perspective\table\libbinding.so" "perspective\table\libpsp.so"  # [win]
     - {{ PYTHON }} -m pip install . -vv  # [not win]
     - set PSP_GENERATOR=Visual Studio 16 2019  # [win]
     - {{ PYTHON }} setup.py build_ext install --single-version-externally-managed  --record=record.txt  # [win]
-    - rm -rf $PREFIX/include/boost* $PREFIX/lib/libboost* $PREFIX/lib/boost*
-    - ls -al $PREFIX/include $PREFIX/lib
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
