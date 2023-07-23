@@ -43,6 +43,7 @@ requirements:
     - yarn
   run:
     - python
+    - boost
     # base
     - ipywidgets >=7.5.1,<9
     - future >=0.16.0,<1
