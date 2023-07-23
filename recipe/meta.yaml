@@ -19,9 +19,8 @@ build:
     - rm  -f perspective/table/libbinding.so perspective/table/libpsp.so  # [not win]
     - del /f "perspective\table\libbinding.so" "perspective\table\libpsp.so"  # [win]
     - {{ PYTHON }} -m pip install . -vv  # [not win]
-    - set PSP_GENERATOR=Visual Studio 14 2015  # [win]
+    - set PSP_GENERATOR=Visual Studio 16 2019  # [win]
     - {{ PYTHON }} setup.py build_ext install --single-version-externally-managed  --record=record.txt  # [win]
-  skip: true  # [win]
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
@@ -39,8 +38,7 @@ requirements:
     - nodejs
     - numpy
     - pip
-    - pybind11 <2.10  # [win]
-    - pybind11  # [not win]
+    - pybind11
     - python
     - yarn
   run:
