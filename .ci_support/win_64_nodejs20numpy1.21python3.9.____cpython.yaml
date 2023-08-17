@@ -9,7 +9,7 @@ channel_targets:
 cxx_compiler:
 - vs2019
 nodejs:
-- '16'
+- '20'
 numpy:
 - '1.21'
 pin_run_as_build:
