@@ -14,7 +14,7 @@ source:
     - patches/0002-use-boost-shared.patch
 
 build:
-  number: 1
+  number: 2
   script:
     - rm  -f perspective/table/libbinding.so perspective/table/libpsp.so  # [not win]
     - del /f "perspective\table\libbinding.so" "perspective\table\libpsp.so"  # [win]
