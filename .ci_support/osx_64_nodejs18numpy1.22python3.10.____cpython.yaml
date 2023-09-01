@@ -17,9 +17,9 @@ cxx_compiler_version:
 macos_machine:
 - x86_64-apple-darwin13.4.0
 nodejs:
-- '20'
+- '18'
 numpy:
-- '1.21'
+- '1.22'
 pin_run_as_build:
   boost:
     max_pin: x.x.x
