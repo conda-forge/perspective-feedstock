@@ -1,6 +1,6 @@
 {% set name = "perspective" %}
 {% set pypi_name = "perspective-python" %}
-{% set version = "2.5.0" %}
+{% set version = "2.5.1" %}
 
 package:
   name: {{ name|lower }}
@@ -8,13 +8,13 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ pypi_name[0] }}/{{ pypi_name }}/{{ pypi_name }}-{{ version }}.tar.gz
-  sha256: ad095e201c35848853092f7694383e2194855d75c2abde424efd69b8640692d1
+  sha256: 06d32f5f9a22d35b214b523e60400244b1e3eff3062ff5eb5cf97a725451422e
   patches:
     - patches/0001-pybind_cmake.patch  # [win]
     - patches/0002-use-boost-shared.patch
 
 build:
-  number: 1
+  number: 0
   script:
     - rm  -f perspective/table/libbinding.so perspective/table/libpsp.so  # [not win]
     - del /f "perspective\table\libbinding.so" "perspective\table\libpsp.so"  # [win]
