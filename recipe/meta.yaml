@@ -33,7 +33,7 @@ requirements:
     - make  # [not win]
     - jupyter_packaging <=1
   host:
-    - libboost-python-devel
+    - libboost-devel
     - jupyter_packaging <=1
     - nodejs
     - numpy
@@ -43,7 +43,6 @@ requirements:
     - yarn
   run:
     - python
-    - libboost-python-devel
     # base
     - ipywidgets >=7.5.1,<9
     - future >=0.16.0,<1
