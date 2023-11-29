@@ -44,6 +44,7 @@ requirements:
   run:
     - python
     # base
+    - distutils  # [py>311]
     - ipywidgets >=7.5.1,<9
     - future >=0.16.0,<1
     - jinja2 >=2
