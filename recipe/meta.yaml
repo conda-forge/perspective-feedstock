@@ -12,6 +12,7 @@ source:
   patches:
     - patches/0001-pybind_cmake.patch  # [win]
     - patches/0002-use-boost-shared.patch
+    - patches/0003-remove-distutils.patch
 
 build:
   number: 0
