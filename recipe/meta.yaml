@@ -20,7 +20,7 @@ build:
     - rm  -f perspective/table/libbinding.so perspective/table/libpsp.so  # [not win]
     - del /f "perspective\table\libbinding.so" "perspective\table\libpsp.so"  # [win]
     - {{ PYTHON }} -m pip install . -vv  # [not win]
-    - set PSP_GENERATOR=Visual Studio 16 2019  # [win]
+    - set PSP_GENERATOR=Visual Studio 17 2022  # [win]
     - {{ PYTHON }} setup.py build_ext install --single-version-externally-managed  --record=record.txt  # [win]
 requirements:
   build:
