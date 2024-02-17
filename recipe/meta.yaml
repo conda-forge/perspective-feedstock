@@ -15,7 +15,7 @@ source:
     - patches/0003-remove-distutils.patch
 
 build:
-  number: 0
+  number: 1
   script:
     - rm  -f perspective/table/libbinding.so perspective/table/libpsp.so  # [not win]
     - del /f "perspective\table\libbinding.so" "perspective\table\libpsp.so"  # [win]
@@ -46,12 +46,12 @@ requirements:
     - python
     # base
     - ipywidgets >=7.5.1,<9
-    - future >=0.16.0,<1
-    - jinja2 >=2
+    - jinja2 >=2,<4
     - {{ pin_compatible('numpy') }}
     - pandas >=0.22.0,<3
     - python-dateutil >=2.8.0,<3
     - traitlets >=4.3.2,<6
+
   run_constrained:
     # aiohttp
     - aiohttp >=3,<4
