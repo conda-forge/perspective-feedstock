@@ -1,6 +1,6 @@
 {% set name = "perspective" %}
 {% set pypi_name = "perspective-python" %}
-{% set version = "2.8.0" %}
+{% set version = "2.8.1" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ pypi_name[0] }}/{{ pypi_name }}/{{ pypi_name }}-{{ version }}.tar.gz
-  sha256: 2587612619f9b5781adf55053edd8496073b80ece5d55f3f41693ba27436b544
+  sha256: 968e573782f8cd47fa660058d0f0bc7a1114e675e0642cd874744ad24a0961b6
   patches:
     - patches/0001-pybind_cmake.patch  # [win]
     - patches/0002-use-boost-shared.patch
