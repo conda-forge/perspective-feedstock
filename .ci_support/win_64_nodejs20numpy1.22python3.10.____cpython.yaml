@@ -9,7 +9,7 @@ channel_targets:
 cxx_compiler:
 - vs2019
 libboost_devel:
-- '1.82'
+- '1.84'
 nodejs:
 - '20'
 numpy:
