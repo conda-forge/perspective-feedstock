@@ -15,7 +15,7 @@ source:
     - patches/0003-remove-distutils.patch
 
 build:
-  number: 2
+  number: 3
   script:
     - rm  -f perspective/table/libbinding.so perspective/table/libpsp.so  # [not win]
     - del /f "perspective\table\libbinding.so" "perspective\table\libpsp.so"  # [win]
