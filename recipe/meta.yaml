@@ -1,6 +1,7 @@
 {% set name = "perspective" %}
 {% set pypi_name = "perspective-python" %}
 {% set version = "2.10.1" %}
+{% set build_num = 4 %}
 
 package:
   name: {{ name|lower }}
@@ -15,7 +16,7 @@ source:
     - patches/0003-remove-distutils.patch
 
 build:
-  number: 3
+  number: {{ build_num }}
   script:
     - rm  -f perspective/table/libbinding.so perspective/table/libpsp.so  # [not win]
     - del /f "perspective\table\libbinding.so" "perspective\table\libpsp.so"  # [win]
@@ -80,7 +81,7 @@ outputs:
         - python
       run:
         - python
-        - {{ pin_subpackage("perspective", exact=True) }}
+        - perspective ={{ version }}=*_{{ build_num }}
 
   # TODO this is supposed to work, but fails with weird
   # bugs. Try again in the future
