@@ -72,8 +72,6 @@ test:
 outputs:
   - name: perspective
   - name: perspective-python
-    build:
-      noarch: python
     requirements:
       build:
         - {{ stdlib("c") }}
@@ -81,7 +79,7 @@ outputs:
         - python
       run:
         - python
-        - perspective ={{ version }}=*_{{ build_num }}
+        - perspective ={{ version }}
 
   # TODO this is supposed to work, but fails with weird
   # bugs. Try again in the future
