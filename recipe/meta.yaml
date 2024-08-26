@@ -1,68 +1,39 @@
 {% set name = "perspective" %}
-{% set pypi_name = "perspective-python" %}
-{% set version = "2.10.1" %}
-{% set build_num = 4 %}
+{% set version = "3.0.1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ pypi_name[0] }}/{{ pypi_name }}/{{ pypi_name }}-{{ version }}.tar.gz
-  sha256: c40955fa6fb84d2781388bcc77bc680c990d082c09c7934b749c449b8d35c059
-  patches:
-    - patches/0001-pybind_cmake.patch  # [win]
-    - patches/0002-use-boost-shared.patch
-    - patches/0003-remove-distutils.patch
+  url: https://pypi.io/packages/source/p/perspective-python/perspective_python-{{ version }}.tar.gz
+  sha256: f3719c94f601a4bfbe4a80b867ce581aae92ffed47f0bde18d751c901e7cea1a
 
 build:
-  number: {{ build_num }}
+  number: 0
+  skip: True  # [py<39]
   script:
-    - rm  -f perspective/table/libbinding.so perspective/table/libpsp.so  # [not win]
-    - del /f "perspective\table\libbinding.so" "perspective\table\libpsp.so"  # [win]
-    - {{ PYTHON }} -m pip install . -vv  # [not win]
-    - set PSP_GENERATOR=Visual Studio 16 2019  # [win]
-    - {{ PYTHON }} setup.py build_ext install --single-version-externally-managed  --record=record.txt  # [win]
+    - {{ PYTHON }} -m pip install . -vv
+
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - numpy                                  # [build_platform != target_platform]
-    - pybind11                               # [build_platform != target_platform and not win]
     - {{ compiler('c') }}
-    - {{ stdlib("c") }}
+    - {{ stdlib('c') }}
     - {{ compiler('cxx') }}
-    - cmake
-    - make  # [not win]
-    - jupyter_packaging <=1
+    - {{ compiler('rust') }}
   host:
-    - libboost-devel
-    - jupyter_packaging <=1
-    - nodejs
-    - numpy
+    - python
     - pip
-    - pybind11
-    - python
-    - yarn
+    - maturin >=1.4,<2.0
   run:
-    - python
-    # base
+    - numpy
+    - jinja2 >=2.0,<4
     - ipywidgets >=7.5.1,<9
-    - future >=0.16.0,<1
-    - jinja2 >=2
-    - pandas >=0.22.0,<3
-    - python-dateutil >=2.8.0,<3
-    - traitlets >=4.3.2,<6
-  run_constrained:
-    # aiohttp
-    - aiohttp >=3,<4
-    # jupyter
-    - jupyterlab >=3.2,<5
-    # fastapi/starlette
-    - fastapi >=0.70,<1
-    - starlette >=0.20,<1
-    # tornado
-    - tornado >=4.5.3,<7
+    - pandas <3,>=0.22.0
+    - python-dateutil <3,>=2.8.0
+    - traitlets <6,>=4.3.2
 
 test:
   imports:
