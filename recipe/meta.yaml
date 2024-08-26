@@ -6,13 +6,21 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/p/perspective-python/perspective_python-{{ version }}.tar.gz
-  sha256: f3719c94f601a4bfbe4a80b867ce581aae92ffed47f0bde18d751c901e7cea1a
+  - url: https://pypi.io/packages/source/p/perspective-python/perspective_python-{{ version }}.tar.gz
+    sha256: f3719c94f601a4bfbe4a80b867ce581aae92ffed47f0bde18d751c901e7cea1a
+
+  - url: https://github.com/finos/perspective/archive/refs/tags/v{{ version }}.tar.gz
+    sha256: f3f8219da29a74542b42d92b79e988b471f6414bd74eb51a6c46f043876c18f4
+    folder: perspective-cpp
 
 build:
   number: 0
   skip: True  # [py<39]
   script:
+    - export CARGO_FEATURE_EXTERNAL_CPP=1
+    - export PSP_ROOT_DIR=$SRC_DIR/perspective-cpp
+    - cd perspective_python-{{ version }}
+    - cp -r ../perspective_python-{{ version }}.data .
     - {{ PYTHON }} -m pip install . -vv
 
 requirements:
@@ -23,10 +31,13 @@ requirements:
     - {{ stdlib('c') }}
     - {{ compiler('cxx') }}
     - {{ compiler('rust') }}
+    - cmake
+    - make
   host:
     - python
     - pip
     - maturin >=1.4,<2.0
+    - libboost-devel
   run:
     - numpy
     - jinja2 >=2.0,<4
