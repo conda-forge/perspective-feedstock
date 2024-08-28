@@ -12,6 +12,9 @@ source:
   - url: https://github.com/finos/perspective/archive/refs/tags/v{{ version }}.tar.gz
     sha256: f3f8219da29a74542b42d92b79e988b471f6414bd74eb51a6c46f043876c18f4
     folder: perspective-cpp
+    patches:
+      - patches/shared_boost.diff
+      - patches/fix_flags.diff
 
 build:
   number: 0
@@ -21,6 +24,11 @@ build:
     - export PSP_ROOT_DIR=$SRC_DIR/perspective-cpp
     - cd perspective_python-{{ version }}
     - cp -r ../perspective_python-{{ version }}.data .
+    - cd rust/perspective-client
+    - export CARGO_FEATURE_EXTERNAL_PROTO=1
+    - cargo build
+    - cd ../../
+    - unset CARGO_FEATURE_EXTERNAL_PROTO
     - {{ PYTHON }} -m pip install . -vv
 
 requirements:
