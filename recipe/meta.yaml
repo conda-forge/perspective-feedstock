@@ -41,6 +41,7 @@ requirements:
     - {{ compiler('rust') }}
     - cmake
     - make
+    - libprotobuf
   host:
     - python
     - pip
