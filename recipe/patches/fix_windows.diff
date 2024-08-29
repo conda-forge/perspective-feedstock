@@ -1,7 +1,7 @@
-diff --git a/rust/perspective-python/build/psp.rs b/rust/perspective-python/build/psp.rs
+diff --git perspective_python-3.0.1/rust/perspective-python/build/psp.rs perspective_python-3.0.1/rust/perspective-python/build/psp.rs
 index 37711cbf8..16f2157a5 100644
---- a/rust/perspective-python/build/psp.rs
-+++ b/rust/perspective-python/build/psp.rs
+--- perspective_python-3.0.1/rust/perspective-python/build/psp.rs
++++ perspective_python-3.0.1/rust/perspective-python/build/psp.rs
 @@ -58,10 +58,6 @@ pub fn cmake_build() -> Result<Option<PathBuf>, std::io::Error> {
      }
  
@@ -30,10 +30,10 @@ index 37711cbf8..16f2157a5 100644
      if std::env::var("CARGO_FEATURE_PYTHON").is_ok() {
          dst.define("CMAKE_POSITION_INDEPENDENT_CODE", "ON");
          dst.define("PSP_PYTHON_BUILD", "1");
-diff --git a/rust/perspective-server/build/psp.rs b/rust/perspective-server/build/psp.rs
+diff --git perspective_python-3.0.1/rust/perspective-server/build/psp.rs perspective_python-3.0.1/rust/perspective-server/build/psp.rs
 index fc2b7dede..bc51c8029 100644
---- a/rust/perspective-server/build/psp.rs
-+++ b/rust/perspective-server/build/psp.rs
+--- perspective_python-3.0.1/rust/perspective-server/build/psp.rs
++++ perspective_python-3.0.1/rust/perspective-server/build/psp.rs
 @@ -56,10 +56,6 @@ pub fn cmake_build() -> Result<Option<PathBuf>, std::io::Error> {
      }
  
