@@ -19,17 +19,6 @@ source:
 build:
   number: 0
   skip: True  # [py<39]
-  script:
-    - export CARGO_FEATURE_EXTERNAL_CPP=1
-    - export PSP_ROOT_DIR=$SRC_DIR/perspective-cpp
-    - cd perspective_python-{{ version }}
-    - cp -r ../perspective_python-{{ version }}.data .
-    - cd rust/perspective-client
-    - export CARGO_FEATURE_EXTERNAL_PROTO=1
-    - cargo build
-    - cd ../../
-    - unset CARGO_FEATURE_EXTERNAL_PROTO
-    - {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
@@ -88,7 +77,8 @@ about:
   home: http://github.com/finos/perspective
   license: Apache-2.0
   license_family: Apache
-  license_file: dist/LICENSE
+  license_file:
+    - perspective-cpp/LICENSE.md
   summary: Streaming pivot visualization via WebAssembly
   description: Streaming pivot visualization via WebAssembly
   dev_url: https://github.com/finos/perspective
