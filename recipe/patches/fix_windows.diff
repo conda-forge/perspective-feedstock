@@ -30,35 +30,3 @@ index 37711cbf8..16f2157a5 100644
      if std::env::var("CARGO_FEATURE_PYTHON").is_ok() {
          dst.define("CMAKE_POSITION_INDEPENDENT_CODE", "ON");
          dst.define("PSP_PYTHON_BUILD", "1");
-diff --git perspective_python-3.0.1/rust/perspective-server/build/psp.rs perspective_python-3.0.1/rust/perspective-server/build/psp.rs
-index fc2b7dede..bc51c8029 100644
---- perspective_python-3.0.1/rust/perspective-server/build/psp.rs
-+++ perspective_python-3.0.1/rust/perspective-server/build/psp.rs
-@@ -56,10 +56,6 @@ pub fn cmake_build() -> Result<Option<PathBuf>, std::io::Error> {
-     }
- 
-     let mut dst = Config::new("cpp/perspective");
--    if cfg!(windows) && std::option_env!("CI").is_some() {
--        std::fs::create_dir_all("D:\\psp-build")?;
--        dst.out_dir("D:\\psp-build");
--    }
- 
-     let profile = std::env::var("PROFILE").unwrap();
-     dst.always_configure(true);
-@@ -79,16 +75,6 @@ pub fn cmake_build() -> Result<Option<PathBuf>, std::io::Error> {
-         dst.define("PSP_WASM_BUILD", "0");
-     }
- 
--    if cfg!(windows) {
--        dst.define(
--            "CMAKE_TOOLCHAIN_FILE",
--            format!(
--                "{}/scripts/buildsystems/vcpkg.cmake",
--                std::env::var("VCPKG_ROOT").unwrap().replace("\\", "/")
--            ),
--        );
--    }
--
-     if std::env::var("CARGO_FEATURE_PYTHON").is_ok() {
-         dst.define("CMAKE_POSITION_INDEPENDENT_CODE", "ON");
-         dst.define("PSP_PYTHON_BUILD", "1");
