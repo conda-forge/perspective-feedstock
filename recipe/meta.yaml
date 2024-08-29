@@ -8,6 +8,8 @@ package:
 source:
   - url: https://pypi.io/packages/source/p/perspective-python/perspective_python-{{ version }}.tar.gz
     sha256: f3719c94f601a4bfbe4a80b867ce581aae92ffed47f0bde18d751c901e7cea1a
+    patches:
+      - patches/fix_windows.diff
 
   - url: https://github.com/finos/perspective/archive/refs/tags/v{{ version }}.tar.gz
     sha256: f3f8219da29a74542b42d92b79e988b471f6414bd74eb51a6c46f043876c18f4
