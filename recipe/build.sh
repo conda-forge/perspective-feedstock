@@ -8,4 +8,4 @@ cargo build
 cd ../../
 unset CARGO_FEATURE_EXTERNAL_PROTO
 ${PYTHON} -m pip install . -vv
-
+${PYTHON} ${RECIPE_DIR}/copy.py

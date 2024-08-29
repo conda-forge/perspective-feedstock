@@ -1,11 +1,12 @@
 set CARGO_FEATURE_EXTERNAL_CPP=1
-set "PSP_ROOT_DIR=%SRC_DIR%/perspective-cpp"
+set "PSP_ROOT_DIR=%SRC_DIR%\\perspective-cpp"
 cd perspective_python-%PKG_VERSION%
-copy ../perspective_python-%PKG_VERSION%.data .
-cd rust/perspective-client
+copy ..\\perspective_python-%PKG_VERSION%.data .
+cd rust\\perspective-client
 set CARGO_FEATURE_EXTERNAL_PROTO=1
 cargo build
-cd ../../
+cd ..\\..\\
 set CARGO_FEATURE_EXTERNAL_PROTO=
 %PYTHON% -m pip install . -vv
+%PYTHON% %RECIPE_DIR%\\copy.py
 
