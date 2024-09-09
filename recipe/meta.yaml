@@ -17,6 +17,7 @@ source:
     patches:
       - patches/shared_boost.diff
       - patches/fix_flags.diff
+      - patches/fix_arrow.diff
 
 build:
   number: 0
