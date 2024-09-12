@@ -19,7 +19,9 @@ if arch == "amd64":
     arch = "x86_64"
 dylib_name = f"{platform.system().lower()}-{arch}-libpsp.{ext}"
 
+target_dir = os.environ.get("CARGO_TARGET_DIR", "target")
+
 for ext_to_copy in ["so", "dylib", "dll", "pyd"]:
-    for f in glob.glob(f"target/**/libpsp.{ext_to_copy}", recursive=True):
+    for f in glob.glob(f"{target_dir}/**/libpsp.{ext_to_copy}", recursive=True):
         shutil.copy(f, os.path.join(d, dylib_name))
 
