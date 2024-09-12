@@ -41,6 +41,7 @@ requirements:
     - maturin >=1.4,<2.0
     - libboost-devel
   run:
+    - python
     - numpy
     - jinja2 >=2.0,<4
     - ipywidgets >=7.5.1,<9
