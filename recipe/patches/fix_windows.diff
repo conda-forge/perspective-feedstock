@@ -1,7 +1,7 @@
-diff --git perspective_python-3.0.1/rust/perspective-python/build/psp.rs perspective_python-3.0.1/rust/perspective-python/build/psp.rs
+diff --git rust/perspective-server/build/psp.rs rust/perspective-server/build/psp.rs
 index 37711cbf8..16f2157a5 100644
---- perspective_python-3.0.1/rust/perspective-python/build/psp.rs
-+++ perspective_python-3.0.1/rust/perspective-python/build/psp.rs
+--- rust/perspective-server/build/psp.rs
++++ rust/perspective-server/build/psp.rs
 @@ -58,10 +58,6 @@ pub fn cmake_build() -> Result<Option<PathBuf>, std::io::Error> {
      }
  

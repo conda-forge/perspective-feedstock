@@ -1,0 +1,15 @@
+diff --git a/rust/perspective-python/build.mjs b/rust/perspective-python/build.mjs
+index 78fbd5083..8f5124956 100644
+--- a/rust/perspective-python/build.mjs
++++ b/rust/perspective-python/build.mjs
+@@ -87,6 +87,10 @@ if (build_wheel) {
+         flags += " -vv";
+     }
+ 
++    console.log(">>>>>>>>>>>>>> ");
++    console.log(`flags = ${flags}`);
++    console.log(`target = ${target}`);
++
+     cmd.sh(`maturin build ${flags} --features=external-cpp ${target}`);
+ }
+ 
