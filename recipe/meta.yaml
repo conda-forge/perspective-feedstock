@@ -9,18 +9,13 @@ source:
   git_url: https://github.com/finos/perspective.git
   git_rev: v3.1.0
   patches:
-    # XXX(tom): clean up unused patches
-    - patches/shared_boost.diff # can be combined with boost_headers_only.
-    # XXX(tom): want to understand better what fix_flags.diff fixes.
-    # It resolved some include-path issues when switching to libboost-headers
+    - patches/shared_boost.diff
     - patches/fix_flags.diff
     - patches/boost_headers_only.diff
     - patches/disable_abi3.diff
     - patches/delete_postinstall.diff
     - patches/delete_lint_package.diff
     - patches/fix_maturin.diff
-    # - patches/fix_arch.diff # XXX(tom): not needed
-    - patches/more_logging.diff
     - patches/disable_protobuf_src.diff
     - patches/fix_windows.diff
 
