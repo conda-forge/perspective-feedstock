@@ -22,6 +22,11 @@ source:
 build:
   number: 0
   skip: True  # [py<39 or py>=313]
+  force_ignore_keys:
+  # The nodejs dependency is used only to orchestrate the build.  The
+  # perspective-python artifact has no runtime dependency on nodejs, so prevent
+  # it from affecting the build hash.
+  - nodejs
 
 requirements:
   build:
