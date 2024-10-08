@@ -18,6 +18,7 @@ source:
     - patches/fix_maturin.diff
     - patches/disable_protobuf_src.diff
     - patches/fix_windows.diff
+    - patches/fix_arrow.patch
 
 build:
   number: 0
@@ -45,15 +46,12 @@ requirements:
     - pnpm
     - pkg-config
     - libprotobuf # for protoc
-    # XXX(tom): emsdk? no, use `jupyterlab` tooling to build extension from npm source (which will DL wasm blob)
-    # vendored Arrow build is broken here:
-    #   CMake Warning at /home/conda/feedstock_root/build_artifacts/debug_1728070755516/work/rust/target/x86_64-unknown-linux-gnu/release/build/perspective-server-ee5a4104f4b826d0/out/build/arrow-src/cpp/cmake_modules/Findlz4Alt.cmake:29 (find_package):
-    - xsimd # XXX(tom): Andrew says we shouldn't need this b/c we disable SIMD in arrow build
-    - lz4 # XXX(tom): likewise, this should be built from source downloaded by psp repo script. and yet the build fails without it
-    # Seems relevant, from the build spew:
-    # By not providing "Findlz4.cmake" in CMAKE_MODULE_PATH this project has
-    # asked CMake to find a package configuration file provided by "lz4", but
-    # CMake did not find one.
+    # Shouldn't need this b/c perspective disables ARROW_SIMD_LEVEL and
+    # ARROW_RUNTIME_SIMD_LEVEL in arrow build.  Funny thing is: without this
+    # package, the build fails -- can't find Findxsimd.cmake.  But if you
+    # immediately try rebuilding, it will then succeed, without xsimd on the
+    # system.  Bewitching cmake cache behavior?
+    - xsimd
   host:
     - python
     - pip
