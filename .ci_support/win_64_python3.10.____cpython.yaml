@@ -12,14 +12,12 @@ libboost_headers:
 - '1.86'
 libprotobuf:
 - 4.25.3
-nodejs:
-- '20'
 pin_run_as_build:
   python:
     min_pin: x.x
     max_pin: x.x
 python:
-- 3.12.* *_cpython
+- 3.10.* *_cpython
 rust_compiler:
 - rust
 target_platform:
