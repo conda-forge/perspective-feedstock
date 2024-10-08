@@ -18,7 +18,6 @@ source:
     - patches/fix_maturin.diff
     - patches/disable_protobuf_src.diff
     - patches/fix_windows.diff
-    - patches/fix_arrow.patch
 
 build:
   number: 0
@@ -46,11 +45,13 @@ requirements:
     - pnpm
     - pkg-config
     - libprotobuf # for protoc
-    # Shouldn't need this b/c perspective disables ARROW_SIMD_LEVEL and
-    # ARROW_RUNTIME_SIMD_LEVEL in arrow build.  Funny thing is: without this
-    # package, the build fails -- can't find Findxsimd.cmake.  But if you
-    # immediately try rebuilding, it will then succeed, without xsimd on the
-    # system.  Bewitching cmake cache behavior?
+    # The lz4 and xsimd dependencies are here to satisfy perspective 3.1.0's
+    # ExternalProject build of arrow, which appears to be buggy; perspective
+    # tries to disable SIMD support, so Arrow's cmake should be skipping xsimd
+    # lookup; and Arrow should link to perspective's provided LZ4 library but
+    # is not.  Can repro outside of conda.  Will investigate and hopefully fix
+    # in upstream
+    - lz4
     - xsimd
   host:
     - python
