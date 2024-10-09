@@ -1,4 +1,4 @@
-{% set name = "perspective-python" %}
+{% set name = "perspective" %}
 {% set version = "3.1.0" %}
 
 package:
