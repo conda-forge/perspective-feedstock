@@ -6,8 +6,8 @@ index 29f0be177..f79514cd9 100644
  psp_build_dep("lz4" "${PSP_CMAKE_MODULE_PATH}/lz4.txt.in")
 
  # Build minimal arrow itself
-+# Arrow detects conda and seeks dependencies that way.  We want it to use our bundled lz4
-+set(ARROW_DEPENDENCY_SOURCE "AUTO")
++# Arrow detects conda and looks on system for sources - perspective needs it to use bundled sources
++set(ARROW_DEPENDENCY_SOURCE "BUNDLED" CACHE STRING "forgive me" FORCE)
  psp_build_dep("arrow" "${PSP_CMAKE_MODULE_PATH}/arrow.txt.in")
 
  if(PSP_PYTHON_BUILD AND NOT PSP_PYODIDE)

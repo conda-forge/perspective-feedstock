@@ -38,7 +38,7 @@ requirements:
     # external projects. On windows, though, having git in the build
     # requirements causes conda-build to hang when cloning perspective's git
     # source, seems to be a conda-build bug.
-    # Fortuantely the CI pipeline still passes on Windows without the dep.  For
+    # Fortunately the CI pipeline still passes on Windows without the dep.  For
     # local Windows builds, install git in the base system.
     - git  # [not win]
     - cmake
@@ -46,12 +46,6 @@ requirements:
     - pnpm
     - pkg-config
     - libprotobuf # for protoc
-    # Shouldn't need this b/c perspective disables ARROW_SIMD_LEVEL and
-    # ARROW_RUNTIME_SIMD_LEVEL in arrow build.  Funny thing is: without this
-    # package, the build fails -- can't find Findxsimd.cmake.  But if you
-    # immediately try rebuilding, it will then succeed, without xsimd on the
-    # system.  Bewitching cmake cache behavior?
-    - xsimd
   host:
     - python
     - pip
