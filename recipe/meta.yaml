@@ -19,6 +19,7 @@ source:
     - patches/disable_protobuf_src.diff
     - patches/fix_windows.diff
     - patches/fix_arrow.patch
+    - patches/fix_arrow_libtool.patch
 
 build:
   number: 0
