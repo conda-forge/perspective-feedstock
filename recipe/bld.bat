@@ -1,24 +1,3 @@
-@REM set CARGO_FEATURE_EXTERNAL_CPP=1
-@REM set "PSP_ROOT_DIR=%SRC_DIR%\\perspective-cpp"
-@REM set "CARGO_TARGET_DIR=D:\psp-rust"
-@REM cd perspective_python-%PKG_VERSION%
-@REM mkdir perspective_python-%PKG_VERSION%.data
-@REM xcopy /s /y %SRC_DIR%\perspective_python-%PKG_VERSION%.data perspective_python-%PKG_VERSION%.data\
-@REM if errorlevel 1 exit 1
-
-@REM cd rust\\perspective-client
-@REM set CARGO_FEATURE_EXTERNAL_PROTO=1
-@REM cargo build
-@REM if errorlevel 1 exit 1
-
-@REM cd ..\\..\\
-@REM set CARGO_FEATURE_EXTERNAL_PROTO=
-@REM %PYTHON% -m pip install . -vv
-@REM if errorlevel 1 exit 1
-
-@REM %PYTHON% %RECIPE_DIR%\\copy.py
-@REM if errorlevel 1 exit 1
-
 @REM protobuf-src is patched out of the build.  its build script fails to link in
 @REM an osx cross-compiling environment; the wrong toolchain is used.
 
