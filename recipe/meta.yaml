@@ -20,6 +20,7 @@ source:
     - patches/fix_windows.diff
     - patches/fix_arrow.patch
     - patches/fix_arrow_libtool.patch
+    - patches/fix_cmake_args.patch
 
 build:
   number: 0

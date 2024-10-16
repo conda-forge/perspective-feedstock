@@ -1,7 +1,7 @@
 #!/bin/bash
 set -ex
 
-# XXX(tom): don't understand why it's needed to set PKG_CONFIG_PATH.
+# NOTE(tomjakubowski): don't understand why it's needed to set PKG_CONFIG_PATH.
 # this directory is already present in pkg-config's config path as reported by
 # `pkg-config --variable pc_path pkg-config` in a --debug build environment.
 # and yet `pkg-config <some-dependency>` fails
