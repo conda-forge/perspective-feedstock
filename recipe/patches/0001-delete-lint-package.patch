@@ -1,0 +1,24 @@
+From 0c2b989fd96e36ccedbe585f89374352a2bcc07a Mon Sep 17 00:00:00 2001
+From: Tom Jakubowski <tom@prospective.dev>
+Date: Fri, 18 Oct 2024 13:24:43 -0700
+Subject: [PATCH 1/2] delete lint package
+
+---
+ Cargo.toml | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 85c0f5458..3d872acf9 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -21,7 +21,6 @@ default-members = [
+     "rust/perspective-viewer",
+ ]
+ members = [
+-    "rust/lint",
+     "rust/generate-metadata",
+     "rust/bootstrap",
+     "rust/bootstrap-runtime",
+-- 
+2.39.2
+

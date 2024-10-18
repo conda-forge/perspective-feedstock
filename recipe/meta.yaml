@@ -1,5 +1,5 @@
 {% set name = "perspective" %}
-{% set version = "3.1.0" %}
+{% set version = "3.1.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,20 +7,12 @@ package:
 
 source:
   git_url: https://github.com/finos/perspective.git
-  git_rev: v3.1.0
+  git_rev: v3.1.1
   patches:
-    - patches/shared_boost.diff
-    - patches/fix_flags.diff
-    - patches/boost_headers_only.diff
-    - patches/disable_abi3.diff
-    - patches/delete_postinstall.diff
-    - patches/delete_lint_package.diff
-    - patches/fix_maturin.diff
-    - patches/disable_protobuf_src.diff
-    - patches/fix_windows.diff
-    - patches/fix_arrow.patch
-    - patches/fix_arrow_libtool.patch
-    - patches/fix_cmake_args.patch
+    - patches/0001-delete-lint-package.patch
+    - patches/0002-fix-flags.patch
+    - patches/0003-delete-postinstall-scripts.patch
+    - patches/0004-maturin-manylinux-off-external-cpp-feature.patch
 
 build:
   number: 0
@@ -31,7 +23,6 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - maturin >=1.4,<2.0                     # [build_platform != target_platform]
-    - libboost-headers                       # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ stdlib('c') }}
     - {{ compiler('cxx') }}
@@ -52,7 +43,6 @@ requirements:
     - python
     - pip
     - maturin >=1.4,<2.0
-    - libboost-headers
   run:
     - python
 

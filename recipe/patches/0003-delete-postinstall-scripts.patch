@@ -1,0 +1,27 @@
+From 5cfa12471d086569e3680db9b9b9460f97eac148 Mon Sep 17 00:00:00 2001
+From: Tom Jakubowski <tom@prospective.dev>
+Date: Fri, 18 Oct 2024 13:35:27 -0700
+Subject: [PATCH 3/3] delete postinstall scripts
+
+---
+ package.json | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/package.json b/package.json
+index 17fe811b9..c1ce8a38d 100644
+--- a/package.json
++++ b/package.json
+@@ -81,10 +81,6 @@
+     },
+     "scripts": {
+         "preinstall": "npx only-allow pnpm",
+-        "postinstall": "npm-run-all postinstall:*",
+-        "postinstall:emsdk": "node tools/perspective-scripts/install_emsdk.mjs",
+-        "postinstall:playwright": "npx playwright install --with-deps chromium",
+-        "postinstall:vscode": "cp -n ./.vscode/settings.default.json ./.vscode/settings.json || true",
+         "install_llvm": "node tools/perspective-scripts/install_llvm.mjs",
+         "install_pyodide": "node tools/perspective-scripts/install_pyodide.mjs",
+         "build,test": "npm run --silent build && npm run --silent test",
+-- 
+2.39.2
+

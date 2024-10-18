@@ -25,10 +25,12 @@ pnpm install --filter '@finos/perspective-python'
 export PACKAGE=perspective-python
 export PSP_BUILD_WHEEL=1
 export PROTOC
-
-# protobuf-src is patched out of the build.  its build script fails to link in
-# an osx cross-compiling environment; the wrong toolchain is used.
 PROTOC=$(which protoc)
+
+# FIXME: Need to be able to run generate-metadata _without_ compiling all the
+# crates in the workspace. For right now, create blank supplemental rustdocs
+touch rust/perspective-client/docs/expression_gen.md
+
 pnpm run build
 
 # Install wheel to site-packages ($SP_DIR), wherefrom Conda assembles the .conda package contents
