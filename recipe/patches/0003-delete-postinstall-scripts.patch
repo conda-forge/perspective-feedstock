@@ -1,7 +1,7 @@
 From 5cfa12471d086569e3680db9b9b9460f97eac148 Mon Sep 17 00:00:00 2001
 From: Tom Jakubowski <tom@prospective.dev>
 Date: Fri, 18 Oct 2024 13:35:27 -0700
-Subject: [PATCH 3/3] delete postinstall scripts
+Subject: [PATCH 3/4] delete postinstall scripts
 
 ---
  package.json | 4 ----
@@ -22,6 +22,6 @@ index 17fe811b9..c1ce8a38d 100644
          "install_llvm": "node tools/perspective-scripts/install_llvm.mjs",
          "install_pyodide": "node tools/perspective-scripts/install_pyodide.mjs",
          "build,test": "npm run --silent build && npm run --silent test",
--- 
+--
 2.39.2
 
