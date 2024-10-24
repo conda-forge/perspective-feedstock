@@ -1,0 +1,41 @@
+From 2c2974912ed5d6549de4d8f527bac60bf5d8c631 Mon Sep 17 00:00:00 2001
+From: Tom Jakubowski <tom@prospective.dev>
+Date: Fri, 18 Oct 2024 14:37:47 -0700
+Subject: [PATCH 4/4] maturin: --manylinux off, external-cpp feature
+
+---
+ rust/perspective-python/build.mjs | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
+
+diff --git a/rust/perspective-python/build.mjs b/rust/perspective-python/build.mjs
+index 89812d1cc..1791fe1ba 100644
+--- a/rust/perspective-python/build.mjs
++++ b/rust/perspective-python/build.mjs
+@@ -75,8 +75,13 @@ if (build_wheel) {
+         process.env.PSP_ARCH === "x86_64" &&
+         process.platform === "linux"
+     ) {
+-        target =
+-            "--target=x86_64-unknown-linux-gnu --compatibility manylinux_2_28";
++        const triple = "x86_64-unknown-linux-gnu";
++        if (process.env.CONDA_BUILD === "1") {
++            target = `--target=${triple} --manylinux off`
++        } else {
++            target =
++                `--target=${triple} --compatibility manylinux_2_28`;
++        }
+     } else if (
+         process.env.PSP_ARCH === "aarch64" &&
+         process.platform === "linux"
+@@ -100,7 +105,7 @@ if (build_wheel) {
+         }
+         // we need to generate proto.rs using conda's protoc, which is set in
+         // the environment.  we use the unstable "versioned" python abi
+-        features.push(["generate-proto"]);
++        features.push(["generate-proto", "external-cpp"]);
+     } else {
+         // standard for in-repo builds.  a different set will be standard in the sdist
+         const standard_features = ["abi3", "generate-proto", "protobuf-src"];
+-- 
+2.39.2
+
