@@ -7,6 +7,7 @@ package:
 
 source:
   url: https://github.com/finos/perspective/releases/download/v{{version}}/perspective_python-{{version}}.tar.gz
+  sha256: d2d4d58a7096c72c580f3b2010acdd08e07f0c3ddcfc6a9abaff58ce015eb394
   # git_url: https://github.com/finos/perspective.git
   # git_rev: v{{ version }}
   # patches:
