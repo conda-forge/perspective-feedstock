@@ -17,21 +17,6 @@ linux-aarch64 | osx-arm64)
 esac
 export PSP_ARCH=$arch
 
-echo "PSP_ARCH: $arch"
-
-pnpm install --filter '@finos/perspective-python'
-
-# Run perspective git-source build
-export PACKAGE=perspective-python
-export PSP_BUILD_WHEEL=1
-export PROTOC
-PROTOC=$(which protoc)
-
-# FIXME: Need to be able to run generate-metadata _without_ compiling all the
-# crates in the workspace. For right now, create blank supplemental rustdocs
-touch rust/perspective-client/docs/expression_gen.md
-
-pnpm run build
-
-# Install wheel to site-packages ($SP_DIR), wherefrom Conda assembles the .conda package contents
-$PYTHON -m pip install rust/target/wheels/perspective_python*.whl -vv
+echo "PKG_CONFIG_PATH: $PKG_CONFIG_PATH"
+echo "PSP_ARCH: $PSP_ARCH"
+$PYTHON -m pip install . -vv
