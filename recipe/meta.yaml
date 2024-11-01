@@ -36,7 +36,7 @@ requirements:
     # source, seems to be a conda-build bug.
     # Fortunately the CI pipeline still passes on Windows without the dep.  For
     # local Windows builds, install git in the base system.
-    - git  # [not win]
+    - git
     - cmake
     - make
     # - pnpm
