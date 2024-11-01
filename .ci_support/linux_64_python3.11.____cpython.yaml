@@ -21,7 +21,7 @@ docker_image:
 libboost_devel:
 - '1.86'
 libprotobuf:
-- 4.25.3
+- 5.27.5
 pin_run_as_build:
   python:
     min_pin: x.x
@@ -37,5 +37,3 @@ zip_keys:
   - cxx_compiler_version
 - - c_stdlib_version
   - cdt_name
-- - python
-  - channel_sources
