@@ -1,0 +1,22 @@
+diff --git a/rust/perspective-server/build/psp.rs b/rust/perspective-server/build/psp.rs
+index 92e8fd506..9727be850 100644
+--- a/rust/perspective-server/build/psp.rs
++++ b/rust/perspective-server/build/psp.rs
+@@ -106,6 +106,17 @@ pub fn cmake_build() -> Result<Option<PathBuf>, std::io::Error> {
+         dst.build_arg(format!("-j{}", num_cpus::get()));
+     }
+ 
++    if let Ok(cmake_args) = std::env::var("CMAKE_ARGS") {
++        // this is quite crude.  it will not work correctly with quoted or escaped arguments
++        // containing spaces in CMAKE_ARGS.  it does avoid having to add a dependency and patch
++        // Cargo.lock.  when this is fixed upstream it will use the shlex crate, similar to how
++        // arrow's setup.py parses CMAKE_ARGS using python's shlex module.
++        // https://github.com/apache/arrow/blob/648af67a484b5025efa2da43d986da173d7f1836/python/setup.py#L319
++        for arg in cmake_args.split(" ") {
++            dst.configure_arg(arg);
++        }
++    }
++
+     println!("cargo:warning=MESSAGE Building cmake {}", profile);
+     if std::env::var("PSP_BUILD_VERBOSE").unwrap_or_default() != "" { // checks non-empty env var
+         dst.very_verbose(true);
