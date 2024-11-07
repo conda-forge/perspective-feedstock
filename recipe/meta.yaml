@@ -1,5 +1,5 @@
 {% set name = "perspective" %}
-{% set version = "3.0.1" %}
+{% set version = "3.1.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   - url: https://pypi.io/packages/source/p/perspective-python/perspective_python-{{ version }}.tar.gz
-    sha256: f3719c94f601a4bfbe4a80b867ce581aae92ffed47f0bde18d751c901e7cea1a
+    sha256: 36818f27577f57035333bae706c8905ff9e98c6d1011dd24f48fdb316a22fb78
     patches:
       - patches/fix_windows.diff
 
   - url: https://github.com/finos/perspective/archive/refs/tags/v{{ version }}.tar.gz
-    sha256: f3f8219da29a74542b42d92b79e988b471f6414bd74eb51a6c46f043876c18f4
+    sha256: b1b47caa1da3cb4f2c5a224851c7e734458173539761284db6aa5a0d5f88a221
     folder: perspective-cpp
     patches:
       - patches/shared_boost.diff
@@ -20,8 +20,8 @@ source:
       - patches/fix_arrow.diff
 
 build:
-  number: 1
-  skip: True  # [py<39]
+  number: 0
+  skip: true  # [py<39]
 
 requirements:
   build:
