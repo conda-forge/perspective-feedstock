@@ -11,7 +11,7 @@ source:
 
 build:
   number: 0
-  skip: True  # [py<39 or py>=313]
+  skip: true  # [py<39 or py>=313]
 
 requirements:
   build:
