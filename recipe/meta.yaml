@@ -1,27 +1,17 @@
 {% set name = "perspective" %}
-{% set version = "3.0.1" %}
+{% set version = "3.1.6" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  - url: https://pypi.io/packages/source/p/perspective-python/perspective_python-{{ version }}.tar.gz
-    sha256: f3719c94f601a4bfbe4a80b867ce581aae92ffed47f0bde18d751c901e7cea1a
-    patches:
-      - patches/fix_windows.diff
-
-  - url: https://github.com/finos/perspective/archive/refs/tags/v{{ version }}.tar.gz
-    sha256: f3f8219da29a74542b42d92b79e988b471f6414bd74eb51a6c46f043876c18f4
-    folder: perspective-cpp
-    patches:
-      - patches/shared_boost.diff
-      - patches/fix_flags.diff
-      - patches/fix_arrow.diff
+  url: https://github.com/finos/perspective/releases/download/v{{ version }}/perspective_python-{{ version }}.tar.gz
+  sha256: 4756b07269a947ce8fabdc02377aa4fd530acd60d5fba171455f09ac31f17f84
 
 build:
-  number: 1
-  skip: True  # [py<39]
+  number: 0
+  skip: True  # [py<39 or py>=313]
 
 requirements:
   build:
@@ -32,57 +22,27 @@ requirements:
     - {{ stdlib('c') }}
     - {{ compiler('cxx') }}
     - {{ compiler('rust') }}
+    - git
     - cmake
     - make
-    - libprotobuf
+    - pkg-config
   host:
     - python
     - pip
     - maturin >=1.4,<2.0
-    - libboost-devel
   run:
     - python
-    - numpy
-    - jinja2 >=2.0,<4
-    - ipywidgets >=7.5.1,<9
-    - pandas <3,>=0.22.0
-    - python-dateutil <3,>=2.8.0
-    - traitlets <6,>=4.3.2
 
 test:
   imports:
     - perspective
-
-outputs:
-  - name: perspective
-  - name: perspective-python
-    requirements:
-      build:
-        - {{ stdlib("c") }}
-      host:
-        - python
-      run:
-        - python
-        - perspective ={{ version }}
-
-  # TODO this is supposed to work, but fails with weird
-  # bugs. Try again in the future
-  # - name: perspective_python
-  #   build:
-  #     noarch: python
-  #   requirements:
-  #     host:
-  #       - python
-  #     run:
-  #       - python
-  #       - {{ pin_subpackage("perspective", exact=True) }}
 
 about:
   home: http://github.com/finos/perspective
   license: Apache-2.0
   license_family: Apache
   license_file:
-    - perspective-cpp/LICENSE.md
+    - LICENSE.md
   summary: Streaming pivot visualization via WebAssembly
   description: Streaming pivot visualization via WebAssembly
   dev_url: https://github.com/finos/perspective
