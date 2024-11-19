@@ -10,8 +10,8 @@ source:
   sha256: 4756b07269a947ce8fabdc02377aa4fd530acd60d5fba171455f09ac31f17f84
 
 build:
-  number: 0
-  skip: True  # [py<39 or py>=313]
+  number: 1
+  skip: true  # [py<39 or py>=313]
 
 requirements:
   build:
@@ -43,6 +43,7 @@ about:
   license_family: Apache
   license_file:
     - LICENSE.md
+    - LICENSE_THIRDPARTY_cargo.yml
   summary: Streaming pivot visualization via WebAssembly
   description: Streaming pivot visualization via WebAssembly
   dev_url: https://github.com/finos/perspective
