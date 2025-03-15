@@ -1,5 +1,5 @@
 {% set name = "perspective" %}
-{% set version = "3.4.1" %}
+{% set version = "3.4.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/finos/perspective/releases/download/v{{ version }}/perspective_python-{{ version }}.tar.gz
-  sha256: 502a867483a0a2f489ac1c0036fea3e790795e4cce193445a39352530c5e85a5
+  sha256: afc9c126712f15b09fda3b7b40a2251e40d937c94f72f6bc38b07aba699f0a4c
 
 build:
   number: 0
