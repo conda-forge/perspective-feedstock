@@ -11,7 +11,7 @@ source:
 
 build:
   number: 0
-  skip: true  # [py<39 or py>=313 or win or (osx and arm64)]
+  skip: true  # [py<39 or py>=314 or win or (osx and arm64)]
 
 requirements:
   build:
