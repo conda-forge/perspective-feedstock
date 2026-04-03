@@ -29,17 +29,24 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64_is_python_mintruepython3.10.____cpython</td>
+              <td>linux_64_is_python_mintrue</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9963&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/perspective-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_is_python_mintruepython3.10.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/perspective-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_is_python_mintrue" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_is_python_mintruepython3.10.____cpython</td>
+              <td>osx_64_is_python_mintrue</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9963&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/perspective-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_is_python_mintruepython3.10.____cpython" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/perspective-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_is_python_mintrue" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_arm64_is_python_mintrue</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9963&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/perspective-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_is_python_mintrue" alt="variant">
                 </a>
               </td>
             </tr>

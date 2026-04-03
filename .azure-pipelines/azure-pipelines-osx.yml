@@ -8,8 +8,12 @@ jobs:
     vmImage: $(VMIMAGE)
   strategy:
     matrix:
-      osx_64_is_python_mintruepython3.11.____cpython:
-        CONFIG: osx_64_is_python_mintruepython3.11.____cpython
+      osx_64_is_python_mintrue:
+        CONFIG: osx_64_is_python_mintrue
+        UPLOAD_PACKAGES: 'True'
+        VMIMAGE: macOS-15
+      osx_arm64_is_python_mintrue:
+        CONFIG: osx_arm64_is_python_mintrue
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15
   timeoutInMinutes: 360

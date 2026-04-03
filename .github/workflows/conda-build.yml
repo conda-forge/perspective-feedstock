@@ -22,7 +22,7 @@ jobs:
       max-parallel: 50
       matrix:
         include:
-          - CONFIG: linux_64_is_python_mintruepython3.11.____cpython
+          - CONFIG: linux_64_is_python_mintrue
             UPLOAD_PACKAGES: True
             os: ubuntu
             runs_on: ['ubuntu-latest']

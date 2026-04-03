@@ -1,6 +1,7 @@
 context:
   name: perspective
   version: 4.4.0
+  python_min: "3.11"
 
 package:
   name: ${{ name|lower }}
@@ -11,17 +12,17 @@ source:
   sha256: a6cf980d9d55cb6ebba5006c9537b1ab20c14e0ea83f1fa1519a52f91eef5d49
 
 build:
-  number: 1
+  number: 2
   python:
     version_independent: true
-  skip: is_abi3 and not is_python_min or win or (osx and arm64)
+  skip: is_abi3 and not is_python_min or win
 
 requirements:
   build:
     - if: build_platform != target_platform
       then:
         - python
-        - cross-python_${{ target_platform }}
+        - cross-python_${{ target_platform }} >=${{ python_min }},<3.14
         - crossenv
         - maturin >=1.4,<2.0
     - ${{ compiler('c') }}
@@ -34,12 +35,12 @@ requirements:
     - make
     - pkg-config
   host:
-    - python
+    - python >=3.11
     - pip
     - maturin >=1.4,<2.0
     - if: is_abi3
       then:
-      - python-abi3
+      - python-abi3 ==${{ python_min }}
   run:
     - python
   ignore_run_exports:
