@@ -4,3 +4,5 @@ cxx_compiler:              # [win]
   - vs2019                 # [win]
 channel_sources:
   - conda-forge
+is_abi3:
+  - true
