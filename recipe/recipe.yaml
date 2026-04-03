@@ -22,8 +22,7 @@ requirements:
     - if: build_platform != target_platform
       then:
         - python
-        - cross-python_${{ target_platform }} >=${{ python_min }},<3.13
-        - crossenv
+        - cross-python_${{ target_platform }} ==${{ python_min }}.*
         - maturin >=1.4,<2.0
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
