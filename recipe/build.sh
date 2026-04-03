@@ -21,6 +21,7 @@ export PSP_ARCH=$arch
 
 echo "PKG_CONFIG_PATH: $PKG_CONFIG_PATH"
 echo "PSP_ARCH: $PSP_ARCH"
+export MATURIN_PEP517_ARGS="--features abi3"
 $PYTHON -m pip install . -vv
 
 cargo-bundle-licenses --format yaml --output THIRDPARTY.yml

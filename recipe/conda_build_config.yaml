@@ -6,3 +6,5 @@ channel_sources:
   - conda-forge
 is_abi3:
   - true
+python_min:
+  - '3.11'

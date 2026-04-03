@@ -31,7 +31,7 @@ pin_run_as_build:
 python:
 - 3.10.* *_cpython
 python_min:
-- '3.10'
+- '3.11'
 rust_compiler:
 - rust
 target_platform:
