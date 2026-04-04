@@ -12,10 +12,6 @@ jobs:
         CONFIG: osx_64_is_python_mintrue
         UPLOAD_PACKAGES: 'True'
         VMIMAGE: macOS-15
-      osx_arm64_is_python_mintrue:
-        CONFIG: osx_arm64_is_python_mintrue
-        UPLOAD_PACKAGES: 'True'
-        VMIMAGE: macOS-15
   timeoutInMinutes: 360
   variables: {}
 
