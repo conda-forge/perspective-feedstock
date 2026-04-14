@@ -27,10 +27,10 @@ jobs:
             os: ubuntu
             runs_on: ['ubuntu-latest']
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-          - CONFIG: osx_64_is_python_mintrue
+          - CONFIG: osx_arm64_is_python_mintrue
             UPLOAD_PACKAGES: True
             os: macos
-            runs_on: ['macos-15-intel']
+            runs_on: ['macos-14']
     steps:
 
     - name: Checkout code
