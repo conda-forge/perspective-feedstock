@@ -23,14 +23,16 @@ jobs:
       matrix:
         include:
           - CONFIG: linux_64_is_python_mintrue
+            STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
             os: ubuntu
             runs_on: ['ubuntu-latest']
             DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-          - CONFIG: osx_arm64_is_python_mintrue
+          - CONFIG: osx_64_is_python_mintrue
+            STORE_BUILD_ARTIFACTS: False
             UPLOAD_PACKAGES: True
             os: macos
-            runs_on: ['macos-14']
+            runs_on: ['macos-15-intel']
     steps:
 
     - name: Checkout code
@@ -103,7 +105,7 @@ jobs:
       env:
         # default value; make it explicit, as it needs to match with artefact
         # generation below. Not configurable for now, can be revisited later
-        CONDA_BLD_DIR: C:\bld
+        CONDA_BLD_PATH: C:\bld
         MINIFORGE_HOME: ${{ contains(runner.arch, 'ARM') && 'C' || 'D' }}:\Miniforge
         PYTHONUNBUFFERED: 1
         CONFIG: ${{ matrix.CONFIG }}
