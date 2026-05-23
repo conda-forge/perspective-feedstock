@@ -1,6 +1,6 @@
 context:
   name: perspective
-  version: "4.4.1"
+  version: "4.5.0"
   python_min: "3.11"
 
 package:
@@ -9,10 +9,10 @@ package:
 
 source:
   url: https://github.com/finos/perspective/releases/download/v${{ version }}/perspective_python-${{ version }}.tar.gz
-  sha256: d3b4cc0f01da5b09dd7c255c3dd6df1eba1eea7c2ebea0167077639069f62ceb
+  sha256: 62ed14fb6eb95c34a8b6b8bf82e529d73b95a0df496cc55d29508cee96fa2b90
 
 build:
-  number: 1
+  number: 0
   python:
     version_independent: true
   skip: is_abi3 and not is_python_min or win
