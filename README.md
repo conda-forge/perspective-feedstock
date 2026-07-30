@@ -23,6 +23,38 @@ Current build status
       </a>
     </td>
   </tr>
+
+  <tr>
+    <td>Azure</td>
+    <td>
+      <details>
+        <summary>
+          <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9963&branchName=main">
+            <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/perspective-feedstock?branchName=main">
+          </a>
+        </summary>
+        <table>
+          <thead><tr><th>Variant</th><th>Status</th></tr></thead>
+          <tbody><tr>
+              <td>osx_64_is_python_mintrue</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9963&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/perspective-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_is_python_mintrue" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64_is_python_mintrue</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=9963&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/perspective-feedstock?branchName=main&jobName=win&configuration=win%20win_64_is_python_mintrue" alt="variant">
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </details>
+    </td>
+  </tr>
 </table>
 
 Current release info
@@ -149,4 +181,3 @@ Feedstock Maintainers
 * [@sc1f](https://github.com/sc1f/)
 * [@texodus](https://github.com/texodus/)
 * [@timkpaine](https://github.com/timkpaine/)
-

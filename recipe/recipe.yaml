@@ -15,7 +15,7 @@ build:
   number: 0
   python:
     version_independent: true
-  skip: is_abi3 and not is_python_min or win
+  skip: is_abi3 and not is_python_min
 
 requirements:
   build:
