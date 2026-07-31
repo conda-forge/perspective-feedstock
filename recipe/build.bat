@@ -1,3 +1,7 @@
+chcp 65001 >nul
+set "PYTHONUTF8=1"
+set "PYTHONIOENCODING=utf-8"
+
 set PSP_ARCH=x86_64
 set "PYO3_PYTHON=%PYTHON%"
 
