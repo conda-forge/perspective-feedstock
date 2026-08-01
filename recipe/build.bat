@@ -1,5 +1,13 @@
+chcp 65001 >nul
+set "PYTHONUTF8=1"
+set "PYTHONIOENCODING=utf-8"
+set "_CL_=/MD"
+
 set PSP_ARCH=x86_64
 set "PYO3_PYTHON=%PYTHON%"
+set "CARGO_PROFILE_RELEASE_BUILD_OVERRIDE_OPT_LEVEL=3"
+set "CMAKE_TOOLCHAIN_FILE=%RECIPE_DIR%\windows-toolchain.cmake"
+set "MATURIN_PEP517_ARGS=--features abi3"
 
 @REM If your build is hosted on a non-D: drive, like at C:\bld, you may need to adjust the
 @REM CARGO_TARGET_DIR value to use the same drive as the build, or else you may encounter an error like this:
@@ -8,4 +16,7 @@ set "PYO3_PYTHON=%PYTHON%"
 set "CARGO_TARGET_DIR=D:\psp-rust"
 
 %PYTHON% -m pip install . -vv
+if errorlevel 1 exit /b 1
+
 cargo-bundle-licenses --format yaml --output THIRDPARTY.yml
+if errorlevel 1 exit /b 1
