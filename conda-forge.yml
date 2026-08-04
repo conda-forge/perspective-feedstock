@@ -11,4 +11,5 @@ github:
   tooling_branch_name: main
 provider:
   osx: github_actions
+  osx_arm64: github_actions
 test: native_and_emulated
