@@ -1,6 +1,6 @@
 context:
   name: perspective
-  version: "5.1.0"
+  version: "5.2.0"
   python_min: "3.11"
 
 package:
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://github.com/finos/perspective/releases/download/v${{ version }}/perspective_python-${{ version }}.tar.gz
-  sha256: d0bbeb206649c1f70b08cd60ddc5f054bbe6a5d1beddef0b3615b8786c930543
+  sha256: 625a3dad9c398b703cf4f36ea116924ad6a3be7430480b1e2571ca934314199f
 
 build:
   number: 0
@@ -37,28 +37,28 @@ requirements:
     - python >=3.11
     - pip
     - maturin >=1.4,<2.0
+    - if: win
+      then: xsimd ==13.0.0
     - if: is_abi3
       then:
         - python-abi3 ==${{ python_min }}
   run:
     - python
-  ignore_run_exports:
-    from_package:
-      - cross-python_${{ target_platform }}
 
 tests:
   - python:
       imports:
         - perspective
       pip_check: true
-      python_version: ${{ python_min }}.*
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
   - if: is_abi3
     then:
       script:
         - if: win
-          then: abi3audit %PREFIX%/Lib/site-packages/perspective/perspective.pyd -s -v --assume-minimum-abi3 ${{ python_min }}
+          then: abi3audit %SP_DIR%/perspective/perspective.pyd -s -v --assume-minimum-abi3 ${{ python_min }}
           else:
-            - export SP_DIR=$(python -c "import site; print(site.getsitepackages()[0])")
             - abi3audit $SP_DIR/perspective/perspective.abi3.so -s -v --assume-minimum-abi3 ${{ python_min }}
       requirements:
         run:
