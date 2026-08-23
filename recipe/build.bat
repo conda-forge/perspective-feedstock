@@ -7,6 +7,7 @@ set PSP_ARCH=x86_64
 set "PYO3_PYTHON=%PYTHON%"
 set "CARGO_PROFILE_RELEASE_BUILD_OVERRIDE_OPT_LEVEL=3"
 set "CMAKE_TOOLCHAIN_FILE=%RECIPE_DIR%\windows-toolchain.cmake"
+set "CMAKE_ARGS=%CMAKE_ARGS% -Dxsimd_SOURCE=SYSTEM"
 set "MATURIN_PEP517_ARGS=--features abi3"
 
 @REM If your build is hosted on a non-D: drive, like at C:\bld, you may need to adjust the

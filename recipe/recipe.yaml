@@ -37,6 +37,8 @@ requirements:
     - python >=3.11
     - pip
     - maturin >=1.4,<2.0
+    - if: win
+      then: xsimd ==13.0.0
     - if: is_abi3
       then:
         - python-abi3 ==${{ python_min }}
