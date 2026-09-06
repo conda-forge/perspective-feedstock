@@ -1,6 +1,6 @@
 context:
   name: perspective
-  version: "5.3.0"
+  version: "5.3.1"
   python_min: "3.11"
 
 package:
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://github.com/finos/perspective/releases/download/v${{ version }}/perspective_python-${{ version }}.tar.gz
-  sha256: b9d2a90cbccc27c0f82ca23691057ba44991f1774521daea4b44a5eea70a1b81
+  sha256: 69bae5e3f11da6e3fe3cc72e4b9b20f4f2ec4808a0e864254d2d8b8f48aeff82
 
 build:
   number: 0
