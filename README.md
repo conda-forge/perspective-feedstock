@@ -194,6 +194,3 @@ Feedstock Maintainers
 * [@texodus](https://github.com/texodus/)
 * [@timkpaine](https://github.com/timkpaine/)
 
-
-<!-- dummy commit to enable rerendering -->
-
