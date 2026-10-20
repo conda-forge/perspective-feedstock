@@ -1,7 +1,7 @@
 About perspective-feedstock
 ===========================
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/perspective-4.5-feedstock/blob/v4.5.x/LICENSE.txt)
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/perspective-feedstock/blob/v4.5.x/LICENSE.txt)
 
 Home: https://perspective-dev.github.io/
 
@@ -18,8 +18,8 @@ Current build status
 <table><tr>
     <td>GitHub Actions</td>
     <td>
-      <a href="https://github.com/conda-forge/perspective-4.5-feedstock/actions/workflows/conda-build.yml">
-        <img src="https://github.com/conda-forge/perspective-4.5-feedstock/actions/workflows/conda-build.yml/badge.svg?event=push&branch=v4.5.x">
+      <a href="https://github.com/conda-forge/perspective-feedstock/actions/workflows/conda-build.yml">
+        <img src="https://github.com/conda-forge/perspective-feedstock/actions/workflows/conda-build.yml/badge.svg?event=push&branch=v4.5.x">
       </a>
     </td>
   </tr>
