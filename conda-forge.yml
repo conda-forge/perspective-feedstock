@@ -2,6 +2,9 @@ azure:
   settings_win:
     pool:
       vmImage: windows-2022
+bot:
+  abi_migration_branches:
+    - v4.5.x
 conda_build:
   pkg_format: '2'
 conda_build_tool: rattler-build
