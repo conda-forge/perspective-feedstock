@@ -22,7 +22,7 @@ requirements:
       then:
         - python
         - cross-python_${{ target_platform }} >=${{ python_min }},<3.12
-        - maturin >=1.4,<2.0
+        - maturin >=1.13.3,<2.0
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
     - ${{ compiler('cxx') }}
@@ -35,7 +35,7 @@ requirements:
   host:
     - python >=3.11
     - pip
-    - maturin >=1.4,<2.0
+    - maturin >=1.13.3,<2.0
     - if: win
       then: xsimd ==13.0.0
     - if: is_abi3

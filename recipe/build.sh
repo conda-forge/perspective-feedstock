@@ -23,6 +23,10 @@ echo "PKG_CONFIG_PATH: $PKG_CONFIG_PATH"
 echo "PSP_ARCH: $PSP_ARCH"
 export MATURIN_PEP517_ARGS="--features abi3"
 
+if [[ "${target_platform}" == linux-* ]]; then
+  export CMAKE_ARGS="${CMAKE_ARGS} -DCMAKE_PROJECT_protobuf_INCLUDE=${RECIPE_DIR}/protobuf-options.cmake"
+fi
+
 if [[ "${target_platform}" == "osx-arm64" ]]; then
   # abseil's cmake (bundled in protobuf v27.x) uses an Apple+Clang multi-arch
   # code path that generates "-Xarch_x86_64 -msse4.1" compile flags for ALL
