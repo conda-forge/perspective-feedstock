@@ -31,7 +31,7 @@ requirements:
     - git
     - cmake
     - make
-    - pkg-config
+    - pkgconf
   host:
     - python >=3.11
     - pip

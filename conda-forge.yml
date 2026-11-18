@@ -1,7 +1,3 @@
-azure:
-  settings_win:
-    pool:
-      vmImage: windows-2022
 conda_build:
   pkg_format: '2'
 conda_build_tool: rattler-build
@@ -14,3 +10,7 @@ provider:
   osx: github_actions
   osx_arm64: github_actions
 test: native_and_emulated
+workflow_settings:
+  vm_image:
+    - platform: win_64
+      value: windows-2022
